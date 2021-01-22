@@ -53,6 +53,7 @@ h1{
     border-radius: 50%;
     border-style: solid;
     border-color: gray;
+    margin-top: 15px;
 }
 
 .card-s i {
@@ -66,6 +67,14 @@ h1{
     flex-direction: row;
     justify-content: space-around;
     width: 50%;
+}
+.social{
+    height: 45px;
+}
+
+.card-s .fa:hover{
+    font-size: 43px;
+    color: blue;
 }
 
 

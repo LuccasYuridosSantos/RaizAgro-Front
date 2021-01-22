@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "raizAgro"
+  "defaultProject": "raizAgro",
+  "cli": {
+    "analytics": "dad9b678-b2c8-443d-954e-7c9d56117d9c"
+  }
 }
