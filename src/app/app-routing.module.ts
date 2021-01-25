@@ -13,7 +13,6 @@ const routes: Routes = [
   //rota sobre
   { path: 'sobre', component: SobreComponent }
 
-
 ];
 
 @NgModule({
