@@ -82,41 +82,41 @@
                               <div class="row">
                               <div class="form-group col-md-6">
                                 <label for="exampleInputText">Nome Completo</label>
-                                <input type="text" class="form-control" id="nome" aria-describedby="text" placeholder="Nome Completo">
+                                <input [(ngModel)]='usuario.nomeCompleto' type="text" class="form-control" id="nome" aria-describedby="text" placeholder="Nome Completo">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="exampleInputText">Usuario</label>
-                                <input type="text" class="form-control" id="usuario" aria-describedby="text" placeholder="Usuario">
+                                <input [(ngModel)]='usuario.usuario' type="text" class="form-control" id="usuario" aria-describedby="text" placeholder="Usuario">
                               </div>
                             </div>
                             <div class="row">
                               <div class="form-group col-md-6">
                                 <label for="exampleInputEmail">Email</label>
-                                <input type="Email" class="form-control" id="email" aria-describedby="exampleInputEmail" placeholder="Email">
+                                <input [(ngModel)]='usuario.email' type="Email" class="form-control" id="email" aria-describedby="exampleInputEmail" placeholder="Email">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="exampleInputPassword1">Link photo</label>
-                                <input src="" type="link" class="form-control" placeholder="URL" id="link" name="link" >
+                                <input [(ngModel)]='usuario.foto' src="" type="link" class="form-control" placeholder="URL" id="link" name="link" >
                               </div>
                             </div>
                             <div class="row">
                             <div class="form-group col-md-6">
                               <label for="exampleInputPassword1">Senha</label>
                               <div class="input-group mb-3">
-                                <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2">
+                                <input (input)='confirmeSenha'  type="password" class="form-control" name="senha" id="senha" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2">
                               </div>
                             </div>
                             <div class="form-group col-md-6">
                               <label for="exampleInputPassword1">Confirmar Senha</label>
                               <div class="input-group mb-3">
-                                <input type="password" class="form-control" name="senha" id="senha" placeholder="Confirmar Senha" aria-label="Senha" aria-describedby="basic-addon2">
+                                <input [(ngModel)]='usuario.senha' type="password" class="form-control" name="senha" id="senha" placeholder="Confirmar Senha" aria-label="Senha" aria-describedby="basic-addon2">
                               </div>
                             </div>
                             </div>
                             <div class="row justify-content-center d-flex">
                             <div class="form-group col-md-6 ">
                               <label for="tipo">Tipo de Usuario</label>
-                              <select class="form-control" name="tipo" id="tipo">
+                              <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
                                 <option>Selecione um tipo de usuario</option>
                                 <option value="normal">Normal</option>
                                 <option value="administrador">administrador</option>
@@ -128,7 +128,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancelar</button>
-                          <button type="button" class="btn btn-success">Entrar</button>
+                          <button type="button" class="btn btn-success" (click)='cadastrar()'>Cadastrar</button>
                         </div>
                       </div>
                     </div>
