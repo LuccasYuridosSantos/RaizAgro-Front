@@ -14,7 +14,7 @@ import { SobreComponent } from './sobre/sobre.component';
     AppComponent,
     HomeComponent,
     ContatoComponent,
-    SobreComponent
+    SobreComponent,
   ],
   imports: [
     BrowserModule,
