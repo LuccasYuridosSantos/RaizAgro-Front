@@ -29,12 +29,12 @@
                             <form>
                               <div class="form-group">
                                 <label for="exampleInputText">Usuario</label>
-                                <input type="text" class="form-control" id="usuario" aria-describedby="text" placeholder="Usuario">
+                                <input [(ngModel)]='usuarioLogin.usuario' name="usuarioLogin" type="text" class="form-control" id="usuario" aria-describedby="text" placeholder="Usuario">
                               </div>
                                 <div class="form-group">
                                   <label for="exampleInputPassword1">Senha</label>
                                   <div class="input-group mb-3">
-                                  <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2">
+                                  <input [(ngModel)]='usuarioLogin.senha' type="password" class="form-control" name="senha" id="senha" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2">
                                   <div class="input-group-append">
                                     <button class="btn btn-outline-success" id="btn-senha" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
                                   </div>
@@ -45,23 +45,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancelar</button>
-                          <button type="button" class="btn btn-success">Entrar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title text-center" id="exampleModalLabel">Entrar</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancelar</button>
-                          <button type="button" class="btn btn-success">Entrar</button>
+                          <button (click)='entrar()' data-dismiss="modal" type="submit" class="btn btn-success">Entrar</button>
                         </div>
                       </div>
                     </div>
@@ -81,42 +65,42 @@
                             <form>
                               <div class="row">
                               <div class="form-group col-md-6">
-                                <label for="exampleInputText">Nome Completo</label>
-                                <input [(ngModel)]='usuario.nomeCompleto' type="text" class="form-control" id="nome" aria-describedby="text" placeholder="Nome Completo">
+                                <label  for="exampleInputText">Nome Completo</label>
+                                <input [(ngModel)] = 'usuario.nomeCompleto' type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" aria-describedby="text" placeholder="Nome Completo">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="exampleInputText">Usuario</label>
-                                <input [(ngModel)]='usuario.usuario' type="text" class="form-control" id="usuario" aria-describedby="text" placeholder="Usuario">
+                                <input [(ngModel)] = 'usuario.usuario' type="text" class="form-control" name="usuario" id="usuario" aria-describedby="text" placeholder="Usuario">
                               </div>
                             </div>
                             <div class="row">
                               <div class="form-group col-md-6">
                                 <label for="exampleInputEmail">Email</label>
-                                <input [(ngModel)]='usuario.email' type="Email" class="form-control" id="email" aria-describedby="exampleInputEmail" placeholder="Email">
+                                <input [(ngModel)] = 'usuario.email' type="Email" class="form-control" id="email" aria-describedby="exampleInputEmail" name="email" placeholder="Email">
                               </div>
                               <div class="form-group col-md-6">
-                                <label for="exampleInputPassword1">Link photo</label>
-                                <input [(ngModel)]='usuario.foto' src="" type="link" class="form-control" placeholder="URL" id="link" name="link" >
+                                <label  for="exampleInputPassword1">Link photo</label>
+                                <input [(ngModel)] = 'usuario.foto'type="link" class="form-control" placeholder="URL" id="link" name="link" >
                               </div>
                             </div>
                             <div class="row">
                             <div class="form-group col-md-6">
                               <label for="exampleInputPassword1">Senha</label>
                               <div class="input-group mb-3">
-                                <input (input)='confirmeSenha'  type="password" class="form-control" name="senha" id="senha" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2">
+                                <input (input)='confirmarSenha($event)' type="password" class="form-control" name="senha" id="senha" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2">
                               </div>
                             </div>
                             <div class="form-group col-md-6">
                               <label for="exampleInputPassword1">Confirmar Senha</label>
                               <div class="input-group mb-3">
-                                <input [(ngModel)]='usuario.senha' type="password" class="form-control" name="senha" id="senha" placeholder="Confirmar Senha" aria-label="Senha" aria-describedby="basic-addon2">
+                                <input [(ngModel)] = 'usuario.senha' type="password" class="form-control" name="confirmsenha" id="confirmaSenha" placeholder="Confirmar Senha" aria-label="Senha" aria-describedby="basic-addon2">
                               </div>
                             </div>
                             </div>
                             <div class="row justify-content-center d-flex">
                             <div class="form-group col-md-6 ">
                               <label for="tipo">Tipo de Usuario</label>
-                              <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
+                              <select (change)='tipoUser($event)' class="form-control" name="tipo" id="tipo">
                                 <option>Selecione um tipo de usuario</option>
                                 <option value="normal">Normal</option>
                                 <option value="administrador">administrador</option>
@@ -128,7 +112,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancelar</button>
-                          <button type="button" class="btn btn-success" (click)='cadastrar()'>Cadastrar</button>
+                          <button (click)='cadastrar()' type="submit" class="btn btn-success">Cadastrar</button>
                         </div>
                       </div>
                     </div>
