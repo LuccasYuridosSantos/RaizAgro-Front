@@ -1,15 +1,13 @@
-import { Tema } from "./Tema"
-import { Usuario } from "./Usuario"
+import { Tema } from "./tema"
+import { usuario } from "./usuario"
 
 export class Postagem{
-
     public id: number
-    public dataPostagem: Date
-    public maduro: boolean
     public descricao: string
     public localizacao: string
+    public foto: string
+    public dataPostagem: Date
+    public maduro: boolean
     public tema: Tema
-    public usuario: Usuario
-
-
+    public usuario: usuario
 }
