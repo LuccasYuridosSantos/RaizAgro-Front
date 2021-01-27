@@ -4,6 +4,8 @@ import { usuario } from '../model/usuario';
 import { usuarioLogin } from '../model/usuarioLogin';
 import { AuthService } from '../service/auth.service';
 import { environment } from 'src/environments/environment.prod';
+import { AlertasComponent } from '../alertas/alertas.component';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,8 @@ export class HomeComponent implements OnInit {
   tipoUsario: string
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit(){
@@ -54,18 +57,18 @@ export class HomeComponent implements OnInit {
   cadastrar(){
     this.usuario.tipo = this.tipoUsario
     if(this.usuario.email.indexOf('@') == -1){
-      alert('Email incorreto')
+      this.alertas.showAlertDanger('Email invalido')
     }
 
     if(this.usuario.senha != this.confirmSenha){
-      alert('A senhas estao incorretas')
+      this.alertas.showAlertDanger('A senhas estao incorretas')
     }else{
       this.authService.cadastrar(this.usuario).subscribe((resp: usuario) =>{
         this.usuario = resp
 
         this.router.navigate(['/entrar'])
 
-        alert('Usuario cadastrado com sucesso')
+        this.alertas.showAlertSuccess('Usuario cadastrado com sucesso')
       })
     }
   }
@@ -83,7 +86,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/inicio'])
     }, erro =>{
       if(erro.status == 500){
-        alert('Usuário ou senha estão incorretos!')
+        this.alertas.showAlertDanger('Usuário ou senha estão incorretos!')
       }
     })
   }
