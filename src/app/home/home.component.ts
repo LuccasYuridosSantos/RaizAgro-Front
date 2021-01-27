@@ -12,10 +12,11 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class HomeComponent implements OnInit {
 
-  usuario: usuario = new usuario
+  usuario: usuario = new usuario()
   usuarioLogin: usuarioLogin = new usuarioLogin()
   nomeCompleto: string
   confirmSenha: string
+  corfirmarEmail: string
   tipoUsario: string
   constructor(
     private authService: AuthService,
@@ -38,6 +39,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  corfimarEmail(event: any){
+    this.corfimarEmail = event.target.value
+  }
   confirmarSenha(event: any){
     this.confirmSenha = event.target.value
 
@@ -49,6 +53,9 @@ export class HomeComponent implements OnInit {
 
   cadastrar(){
     this.usuario.tipo = this.tipoUsario
+    if(this.usuario.email.indexOf('@') == -1){
+      alert('Email incorreto')
+    }
 
     if(this.usuario.senha != this.confirmSenha){
       alert('A senhas estao incorretas')
@@ -75,8 +82,8 @@ export class HomeComponent implements OnInit {
 
       this.router.navigate(['/inicio'])
     }, erro =>{
-      if(erro == 500){
-        alert('Usuario ou senha invalido')
+      if(erro.status == 500){
+        alert('Usuário ou senha estão incorretos!')
       }
     })
   }
