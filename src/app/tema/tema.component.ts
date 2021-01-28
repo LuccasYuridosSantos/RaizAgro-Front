@@ -34,7 +34,7 @@ export class TemaComponent implements OnInit {
   }
 
 
-  /* cadastrar(){  
+  cadastrar(){  
     this.tema.ativo = true
     
      this.temaService.postTema(this.tema).subscribe((resp: Tema)=>{
@@ -43,6 +43,6 @@ export class TemaComponent implements OnInit {
        this.findAllTemas()
        this.tema = new Tema()
      })
-  } */
+  } 
 
 }
