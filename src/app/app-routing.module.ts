@@ -4,6 +4,7 @@ import { ContatoComponent } from './contato/contato.component';
 import { HomeComponent } from './home/home.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { TemaComponent } from './tema/tema.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,7 +15,9 @@ const routes: Routes = [
   //rota sobre
   { path: 'sobre', component: SobreComponent },
   //rota inicio
-  {path: 'inicio', component: InicioComponent}
+  {path: 'inicio', component: InicioComponent},
+  //rota tema
+  {path: 'tema', component: TemaComponent}
 
 ];
 
