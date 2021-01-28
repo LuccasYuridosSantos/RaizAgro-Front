@@ -1,324 +1,326 @@
 <!--header Pagina Inicial-->
 <div class="container-fluid">
-  <div class="row d-flex align-items-center">
-      <div class="col-md-6 ">
-          <div class="row mt-5 d-flex justify-content-center">
-              <div class="col-md-6 text-green-dark">
-                  <h1>Seja bem vindo(a)</h1>
-                  <h5>frase a definir</h5>
-              </div>
-          </div>
-          <div class="row d-flex justify-content-center mb-5 mt-3">
-              <div class="col-md-6">
-                  <button class="btn text-green-dark border-green-dark bg-green-light text-bottom mr-2"
-                      data-toggle="modal" data-target="#nova-postagem">Nova
-                      Postagem</button>
-                  <a href="#section1" class="btn text-green-dark border-green-dark text-bottom-dark">Ver Postagens</a>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-6 p-0">
-          <img class="img-fluid tam-img" src="https://i.imgur.com/fN5N12L.jpg" alt="RaizAgro">
-      </div>
-  </div>
+    <div class="row d-flex align-items-center">
+        <div class="col-md-6 ">
+            <div class="row mt-5 d-flex justify-content-center">
+                <div class="col-md-6 text-green-dark">
+                    <h1>Seja bem vindo(a)</h1>
+                    <h5>frase a definir</h5>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center mb-5 mt-3">
+                <div class="col-md-6">
+                    <button class="btn text-green-dark border-green-dark bg-green-light text-bottom mr-2"
+                        data-toggle="modal" data-target="#nova-postagem">Nova
+                        Postagem</button>
+                    <a href="#section1" class="btn text-green-dark border-green-dark text-bottom-dark">Ver Postagens</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 p-0">
+            <img class="img-fluid tam-img" src="https://i.imgur.com/fN5N12L.jpg" alt="RaizAgro">
+        </div>
+    </div>
 </div>
 
 <!-- Modal Nova Postagem -->
 <div class="modal fade text-green-dark" id="nova-postagem" tabindex="-1" role="dialog"
-  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <div class="form-grup">
-                  <label for="titulo">Título</label>
-                  <input type="text" class="form-control" id="titulo" placeholder="Digite o Título">
-              </div>
-              <div class="form-grup mt-2">
-                  <label for="local">Localização</label>
-                  <input type="text" class="form-control" id="local" placeholder="Ex: São Paulo - SP">
-              </div>
-              <div class="form-grup mt-2">
-                  <label for="contato">Contato</label>
-                  <textarea class="form-control" name="contato" id="contato" rows="2"
-                      placeholder="Telefone / E-mail"></textarea>
-              </div>
-              <div class="form-grup mt-2">
-                  <label for="foto">Link da Foto</label>
-                  <input type="text" class="form-control" id="foto" placeholder="URL">
-              </div>
-              <div class="form-grup mt-2">
-                  <label for="texto">Texto</label>
-                  <textarea class="form-control" name="texto" id="texto" rows="3"></textarea>
-              </div>
-              <div class="form-grup mt-2">
-                  <label for="texto">Escolha um Tema ou <a routerLink="/tema" data-dismiss="modal">cadastre um
-                          novo</a></label>
-                  <select class="form-control" name="tema" id="tema">
-                      <option value="">Temas</option>
-                  </select>
-              </div>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-success">Publicar</button>
-          </div>
-      </div>
-  </div>
+    aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grup">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo" placeholder="Digite o Título">
+                </div>
+                <div class="form-grup mt-2">
+                    <label for="local">Localização</label>
+                    <input type="text" class="form-control" id="local" placeholder="Ex: São Paulo - SP">
+                </div>
+                <div class="form-grup mt-2">
+                    <label for="contato">Contato</label>
+                    <textarea class="form-control" name="contato" id="contato" rows="2"
+                        placeholder="Telefone / E-mail"></textarea>
+                </div>
+                <div class="form-grup mt-2">
+                    <label for="foto">Link da Foto</label>
+                    <input type="text" class="form-control" id="foto" placeholder="URL">
+                </div>
+                <div class="form-grup mt-2">
+                    <label for="texto">Texto</label>
+                    <textarea class="form-control" name="texto" id="texto" rows="3"></textarea>
+                </div>
+                <div class="form-grup mt-2">
+                    <label for="texto">Escolha um Tema ou <a routerLink="/tema" data-dismiss="modal">cadastre um
+                            novo</a></label>
+                    <select class="form-control" name="tema" id="tema">
+                        <option value="">Temas</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success">Publicar</button>
+            </div>
+        </div>
+    </div>
+>>>>>>> branchWiter
 </div>
 
 
 <!--Menu Postagens-->
 <div class="container mt-65 mb-5 text-green-dark" id="postagens">
-  <span class="anchor" id="section1"></span>
-  <nav>
-      <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todas-postagens-tab"
-              data-toggle="tab" href="#nav-todas-postagens" role="tab" aria-controls="nav-todas-postagens"
-              aria-selected="true">Todas
-              Postagens</a>
-          <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhas-postagens-tab" data-toggle="tab"
-              href="#nav-minhas-postagens" role="tab" aria-controls="nav-minhas-postagens"
-              aria-selected="false">Minhas
-              Postagens</a>
-          <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagens-por-tema-tab"
-              data-toggle="tab" href="#nav-postagens-por-tema" role="tab" aria-controls="nav-postagens-por-tema"
-              aria-selected="false">
-              Por tema</a>
-          <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagens-por-local-tab"
-              data-toggle="tab" href="#nav-postagens-por-local" role="tab" aria-controls="nav-postagens-por-local"
-              aria-selected="false">
-              Por Localização</a>
-      </div>
-  </nav>
-  <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-todas-postagens" role="tabpanel"
-          aria-labelledby="nav-todas-postagens-tab">Todas</div>
-      <div class="tab-pane fade" id="nav-minhas-postagens" role="tabpanel" aria-labelledby="nav-minhas-postagens-tab">
-          minhas</div>
-      <div class="tab-pane fade" id="nav-postagens-por-tema" role="tabpanel"
-          aria-labelledby="nav-postagens-por-tema-tab">
-          tema</div>
-      <div class="tab-pane fade" id="nav-postagens-por-local" role="tabpanel"
-          aria-labelledby="nav-postagens-por-local-tab">
-          Localização</div>
-  </div>
+    <span class="anchor" id="section1"></span>
+    <nav>
+        <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todas-postagens-tab"
+                data-toggle="tab" href="#nav-todas-postagens" role="tab" aria-controls="nav-todas-postagens"
+                aria-selected="true">Todas
+                Postagens</a>
+            <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhas-postagens-tab" data-toggle="tab"
+                href="#nav-minhas-postagens" role="tab" aria-controls="nav-minhas-postagens"
+                aria-selected="false">Minhas
+                Postagens</a>
+            <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagens-por-tema-tab"
+                data-toggle="tab" href="#nav-postagens-por-tema" role="tab" aria-controls="nav-postagens-por-tema"
+                aria-selected="false">
+                Por tema</a>
+            <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagens-por-local-tab"
+                data-toggle="tab" href="#nav-postagens-por-local" role="tab" aria-controls="nav-postagens-por-local"
+                aria-selected="false">
+                Por Localização</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-todas-postagens" role="tabpanel"
+            aria-labelledby="nav-todas-postagens-tab">Todas</div>
+        <div class="tab-pane fade" id="nav-minhas-postagens" role="tabpanel" aria-labelledby="nav-minhas-postagens-tab">
+            minhas</div>
+        <div class="tab-pane fade" id="nav-postagens-por-tema" role="tabpanel"
+            aria-labelledby="nav-postagens-por-tema-tab">
+            tema</div>
+        <div class="tab-pane fade" id="nav-postagens-por-local" role="tabpanel"
+            aria-labelledby="nav-postagens-por-local-tab">
+            Localização</div>
+    </div>
 </div>
 
 
 <!--Postagens-->
 <article>
-  <div class="container text-green-dark">
+    <div class="container text-green-dark">
 
-      <hr>
+        <hr>
 
-      <!--Todas Postagens-->
-      <div class="row mt-5 mb-5">
-          <div class="col-lg-8 col-md-10 mx-auto">
+        <!--Todas Postagens-->
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-8 col-md-10 mx-auto">
 
-              <!--titulo-->
-              <h2>RaizAgro</h2>
+                <!--titulo-->
+                <h2>RaizAgro</h2>
 
-              <div class="row">
-                  <div class="col-md-6 ">
+                <div class="row">
+                    <div class="col-md-6 ">
 
-                      <!--localização-->
-                      <p>Americana - SP</p>
+                        <!--localização-->
+                        <p>Americana - SP</p>
 
-                  </div>
+                    </div>
 
-                  <!--tema postagem-->
-                  <div class="col-md-6 text-right ">
-                      <p>Tema: frutas</p>
+                    <!--tema postagem-->
+                    <div class="col-md-6 text-right ">
+                        <p>Tema: frutas</p>
 
-                  </div>
-              </div>
+                    </div>
+                </div>
 
-              <!--imagen-->
-              <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
+                <!--imagen-->
+                <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
 
-              <!--descrição-->
-              <p class=" mt-3">(Aqui vai a descrição do post)
-                  Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-                  perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+                <!--descrição-->
+                <p class=" mt-3">(Aqui vai a descrição do post)
+                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
+                    perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
 
-              <hr>
+                <hr>
 
-              <!--contato-->
-              <h4>Contato:</h4>
-              <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
+                <!--contato-->
+                <h4>Contato:</h4>
+                <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
 
-              <hr>
+                <hr>
 
-              <!--usuario-->
-              <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
+                <!--usuario-->
+                <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
 
-              <!--data-->
-              <p class="text-center"><small class="text-muted">
-                      27/01/2021 às 09:01
-                  </small></p>
-          </div>
-      </div>
+                <!--data-->
+                <p class="text-center"><small class="text-muted">
+                        27/01/2021 às 09:01
+                    </small></p>
+            </div>
+        </div>
 
-      <hr>
+        <hr>
 
-      <!--Todas Postagens-->
-      <div class="row mt-5 mb-5">
-          <div class="col-lg-8 col-md-10 mx-auto">
+        <!--Todas Postagens-->
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-8 col-md-10 mx-auto">
 
-              <!--titulo-->
-              <h2>RaizAgro</h2>
+                <!--titulo-->
+                <h2>RaizAgro</h2>
 
-              <div class="row">
-                  <div class="col-md-6 ">
+                <div class="row">
+                    <div class="col-md-6 ">
 
-                      <!--localização-->
-                      <p>Americana - SP</p>
+                        <!--localização-->
+                        <p>Americana - SP</p>
 
-                  </div>
+                    </div>
 
-                  <!--tema postagem-->
-                  <div class="col-md-6 text-right ">
-                      <p>Tema: frutas</p>
+                    <!--tema postagem-->
+                    <div class="col-md-6 text-right ">
+                        <p>Tema: frutas</p>
 
-                  </div>
-              </div>
+                    </div>
+                </div>
 
-              <!--imagen-->
-              <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
+                <!--imagen-->
+                <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
 
-              <!--descrição-->
-              <p class=" mt-3">(Aqui vai a descrição do post)
-                  Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-                  perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+                <!--descrição-->
+                <p class=" mt-3">(Aqui vai a descrição do post)
+                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
+                    perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
 
-              <hr>
+                <hr>
 
-              <!--contato-->
-              <h4>Contato:</h4>
-              <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
+                <!--contato-->
+                <h4>Contato:</h4>
+                <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
 
-              <hr>
+                <hr>
 
-              <!--usuario-->
-              <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
+                <!--usuario-->
+                <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
 
-              <!--data-->
-              <p class="text-center"><small class="text-muted">
-                      27/01/2021 às 09:01
-                  </small></p>
-          </div>
-      </div>
+                <!--data-->
+                <p class="text-center"><small class="text-muted">
+                        27/01/2021 às 09:01
+                    </small></p>
+            </div>
+        </div>
 
-      <hr>
+        <hr>
 
-      <!--Todas Postagens-->
-      <div class="row mt-5 mb-5">
-          <div class="col-lg-8 col-md-10 mx-auto">
+        <!--Todas Postagens-->
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-8 col-md-10 mx-auto">
 
-              <!--titulo-->
-              <h2>RaizAgro</h2>
+                <!--titulo-->
+                <h2>RaizAgro</h2>
 
-              <div class="row">
-                  <div class="col-md-6 ">
+                <div class="row">
+                    <div class="col-md-6 ">
 
-                      <!--localização-->
-                      <p>Americana - SP</p>
+                        <!--localização-->
+                        <p>Americana - SP</p>
 
-                  </div>
+                    </div>
 
-                  <!--tema postagem-->
-                  <div class="col-md-6 text-right ">
-                      <p>Tema: frutas</p>
+                    <!--tema postagem-->
+                    <div class="col-md-6 text-right ">
+                        <p>Tema: frutas</p>
 
-                  </div>
-              </div>
+                    </div>
+                </div>
 
-              <!--imagen-->
-              <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
+                <!--imagen-->
+                <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
 
-              <!--descrição-->
-              <p class=" mt-3">(Aqui vai a descrição do post)
-                  Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-                  perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+                <!--descrição-->
+                <p class=" mt-3">(Aqui vai a descrição do post)
+                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
+                    perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
 
-              <hr>
+                <hr>
 
-              <!--contato-->
-              <h4>Contato:</h4>
-              <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
+                <!--contato-->
+                <h4>Contato:</h4>
+                <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
 
-              <hr>
+                <hr>
 
-              <!--usuario-->
-              <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
+                <!--usuario-->
+                <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
 
-              <!--data-->
-              <p class="text-center"><small class="text-muted">
-                      27/01/2021 às 09:01
-                  </small></p>
-          </div>
-      </div>
+                <!--data-->
+                <p class="text-center"><small class="text-muted">
+                        27/01/2021 às 09:01
+                    </small></p>
+            </div>
+        </div>
 
-      <hr>
+        <hr>
 
-      <!--Todas Postagens-->
-      <div class="row mt-5 mb-5">
-          <div class="col-lg-8 col-md-10 mx-auto">
+        <!--Todas Postagens-->
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-8 col-md-10 mx-auto">
 
-              <!--titulo-->
-              <h2>RaizAgro</h2>
+                <!--titulo-->
+                <h2>RaizAgro</h2>
 
-              <div class="row">
-                  <div class="col-md-6 ">
+                <div class="row">
+                    <div class="col-md-6 ">
 
-                      <!--localização-->
-                      <p>Americana - SP</p>
+                        <!--localização-->
+                        <p>Americana - SP</p>
 
-                  </div>
+                    </div>
 
-                  <!--tema postagem-->
-                  <div class="col-md-6 text-right ">
-                      <p>Tema: frutas</p>
+                    <!--tema postagem-->
+                    <div class="col-md-6 text-right ">
+                        <p>Tema: frutas</p>
 
-                  </div>
-              </div>
+                    </div>
+                </div>
 
-              <!--imagen-->
-              <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
+                <!--imagen-->
+                <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
 
-              <!--descrição-->
-              <p class=" mt-3">(Aqui vai a descrição do post)
-                  Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-                  perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+                <!--descrição-->
+                <p class=" mt-3">(Aqui vai a descrição do post)
+                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
+                    perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
 
-              <hr>
+                <hr>
 
-              <!--contato-->
-              <h4>Contato:</h4>
-              <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
+                <!--contato-->
+                <h4>Contato:</h4>
+                <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
 
-              <hr>
+                <hr>
 
-              <!--usuario-->
-              <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
+                <!--usuario-->
+                <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
 
-              <!--data-->
-              <p class="text-center"><small class="text-muted">
-                      27/01/2021 às 09:01
-                  </small></p>
-          </div>
-      </div>
+                <!--data-->
+                <p class="text-center"><small class="text-muted">
+                        27/01/2021 às 09:01
+                    </small></p>
+            </div>
+        </div>
 
 
-  </div>
+    </div>
+>>>>>>> branchWiter
 </article>
