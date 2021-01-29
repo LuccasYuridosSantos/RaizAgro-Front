@@ -1,80 +1,84 @@
 header {
   background-image: url(https://i.imgur.com/dYJTL39.jpg);
   height: 100vh;
+  margin-top: -4rem;
 }
 
-.bg-green {
+.tra{
+  background: transparent;
+}
+
+.bg-green{
   background-color: #21593b;
 }
 
-.container-sobre {
+.container-sobre{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
 
-.item {
+}
+.item{
   width: 50%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content:center;
+  align-items:center;
   padding: 80px;
 
 }
-
-@media (max-width: 799px) {
-  .container-sobre {
-    flex-direction: column;
+.container-card{
+  flex-wrap: wrap;
+}
+@media (max-width: 1000px) {
+  
+  .item{
+      width: 100%;
+      height: 50vh;
+      padding: 30px;
   }
-
-  .item {
-    width: 100%;
-    height: 50vh;
-    padding: 30px;
-  }
-
-  .container-card {
-    flex-wrap: wrap;
-  }
+}
+@media (max-width: 1335px) {
+  .container-card-par{
+      flex-wrap: wrap;
+  }  
 }
 
 @media (min-width: 800px) {
-  .size-h1 {
-    font-size: 100pt;
+  .size-h1{
+      font-size: 100pt;
   }
-
-  .size-h2 {
-    font-size: 70pt;
+  .size-h2{
+      font-size: 70pt;
   }
-
-  .size-descricao {
-    font-size: 25pt;
+  .size-descricao{
+      font-size: 25pt;
   }
-
-  .size-text-p {
-    font-size: 20pt;
+  .size-text-p{
+      font-size: 20pt;
   }
 
 }
-.size-social {
-  font-size: 35px;
+.text-green-light{
+  color: #54c286;
+}
+.text-green-dark{
+  color: #21593b;
+}
+.size-social{
+  font-size:35px;
   padding: 10px;
 }
-
-.linkedIn {
-  color: #0e76a8;
+.linkedIn{
+  color:  #0e76a8;
 }
-
-.linkedIn:hover {
+.linkedIn:hover{
   color: #108cc5;
 }
-
-.git {
+.git{
   color: black;
 }
-
-.git:hover {
+.git:hover{
   color: gray;
 }

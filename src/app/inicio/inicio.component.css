@@ -1,0 +1,49 @@
+
+header{
+    height: 100vh;
+}
+
+.p-0{
+  padding: 0;
+  margin: 0;
+}
+
+@media(min-width:1195px){
+  .tam-img{
+      width: 650px;
+      
+  }
+}
+.border-green-dark{
+  border-color: #21593b;
+  color: #21593b;
+}
+
+.bg-green-light{
+  background-color: #54c286;
+}
+
+.text-bottom:hover{
+    color: #54c286;
+    border-color: #54c286;
+    background-color: white;
+   
+}
+
+.text-bottom-dark:hover{
+  color: #54c286;
+  border-color: #54c286;
+  background-color: #21593b;
+ 
+}
+
+.anchor{
+  display: block;
+  height: 115px; /*same height as header*/
+  margin-top: -115px; /*same height as header*/
+  visibility: hidden;
+}
+
+.mt-65{
+    margin-top: 65px;
+}
