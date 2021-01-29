@@ -1,4 +1,3 @@
-
 import { HttpClientModule } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,6 +13,9 @@ import { SobreComponent } from './sobre/sobre.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TemaComponent } from './tema/tema.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ContatoComponent,
     SobreComponent,
     InicioComponent,
-    AlertasComponent
+    AlertasComponent, 
+    TemaComponent,
+    TemaEditComponent,
+    TemaDeleteComponent,
   ],
   imports: [
     BrowserModule,
