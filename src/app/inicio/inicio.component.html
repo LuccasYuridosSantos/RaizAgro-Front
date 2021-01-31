@@ -59,10 +59,10 @@
                 <div class="form-grup mt-2">
                     <label for="texto">Escolha um Tema ou <a routerLink="/tema" data-dismiss="modal">cadastre um
                             novo</a></label>
-                    <select class="form-control" name="tema" id="tema"[(ngModel)]='idTema' (change)='findByIdTema()'>
+                    <select class="form-control" name="tema" id="tema" [(ngModel)]='idTema' (change)='findByIdTema()'>
                         <option *ngFor='let item of listaTemas' value="{{item.id}}">
                             {{item.nome}}
-                          </option>
+                        </option>
                     </select>
                 </div>
             </div>
@@ -72,7 +72,7 @@
             </div>
         </div>
     </div>
->>>>>>> branchWiter
+    >>>>>>> branchWiter
 </div>
 
 
@@ -101,228 +101,257 @@
     </nav>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-todas-postagens" role="tabpanel"
-            aria-labelledby="nav-todas-postagens-tab">Todas</div>
+            aria-labelledby="nav-todas-postagens-tab">
+
+
+            <div class="card-body">
+                <div class="row mt-5 mb-5">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <!--titulo-->
+                        <h2 class="card-title">RaizAgro</h2>
+
+                        <div class="row mb-2">
+                            <div class="col-md-6 ">
+
+                                <!--localização-->
+                                <p class="card-text">Americana - SP</p>
+
+                            </div>
+
+                            <!--tema postagem-->
+                            <div class="col-md-6 text-right ">
+                                <p class="card-text">Tema: frutas</p>
+
+                            </div>
+                        </div>
+
+                        <div class="row  d-flex justify-content-center align-items-center">
+                            <div class="col-md-12">
+                                <!--imagen-->
+                                <img class="img-fluid" src="https://i.imgur.com/dYJTL39.jpg" alt="" id="Nov27">
+                            </div>
+                        </div>
+
+
+                        <!--descrição-->
+                        <p class=" mt-3">(Aqui vai a descrição do post)
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor
+                            harum
+                            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+
+                        <hr>
+
+                        <!--contato-->
+                        <h4>Contato:</h4>
+                        <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
+
+                        <hr>
+
+                        <!--usuario-->
+                        <p class="text-center card-text "><small class="text-muted"> by: Witer Mendonça </small></p>
+
+                        <!--data-->
+                        <p class="text-center card-text"><small class="text-muted">
+                                27/01/2021 às 09:01
+                            </small></p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
         <div class="tab-pane fade" id="nav-minhas-postagens" role="tabpanel" aria-labelledby="nav-minhas-postagens-tab">
-            minhas</div>
+
+
+            <div class="card-body">
+                <div class="row mt-5 mb-5">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <!--titulo-->
+                        <h2 class="card-title">RaizAgro</h2>
+
+                        <div class="row mb-2">
+                            <div class="col-md-6 ">
+
+                                <!--localização-->
+                                <p class="card-text">Americana - SP</p>
+
+                            </div>
+
+                            <!--tema postagem-->
+                            <div class="col-md-6 text-right ">
+                                <p class="card-text">Tema: frutas</p>
+
+                            </div>
+                        </div>
+
+                        <div class="row  d-flex justify-content-center align-items-center">
+                            <div class="col-md-12">
+                                <!--imagen-->
+                                <img class="img-fluid" src="https://i.imgur.com/dYJTL39.jpg" alt="" id="Nov27">
+                            </div>
+                        </div>
+
+
+                        <!--descrição-->
+                        <p class=" mt-3">(Aqui vai a descrição do post)
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor
+                            harum
+                            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+
+                        <hr>
+
+                        <!--contato-->
+                        <h4>Contato:</h4>
+                        <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
+
+                        <hr>
+
+                        <!--usuario-->
+                        <p class="text-center card-text "><small class="text-muted"> by: Witer Mendonça </small></p>
+
+                        <!--data-->
+                        <p class="text-center card-text"><small class="text-muted">
+                                27/01/2021 às 09:01
+                            </small></p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
         <div class="tab-pane fade" id="nav-postagens-por-tema" role="tabpanel"
             aria-labelledby="nav-postagens-por-tema-tab">
-            tema</div>
+
+
+            <div class="card-body">
+                <div class="row mt-5 mb-5">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <!--titulo-->
+                        <h2 class="card-title">RaizAgro</h2>
+
+                        <div class="row mb-2">
+                            <div class="col-md-6 ">
+
+                                <!--localização-->
+                                <p class="card-text">Americana - SP</p>
+
+                            </div>
+
+                            <!--tema postagem-->
+                            <div class="col-md-6 text-right ">
+                                <p class="card-text">Tema: frutas</p>
+
+                            </div>
+                        </div>
+
+                        <div class="row  d-flex justify-content-center align-items-center">
+                            <div class="col-md-12">
+                                <!--imagen-->
+                                <img class="img-fluid" src="https://i.imgur.com/dYJTL39.jpg" alt="" id="Nov27">
+                            </div>
+                        </div>
+
+
+                        <!--descrição-->
+                        <p class=" mt-3">(Aqui vai a descrição do post)
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor
+                            harum
+                            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+
+                        <hr>
+
+                        <!--contato-->
+                        <h4>Contato:</h4>
+                        <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
+
+                        <hr>
+
+                        <!--usuario-->
+                        <p class="text-center card-text "><small class="text-muted"> by: Witer Mendonça </small></p>
+
+                        <!--data-->
+                        <p class="text-center card-text"><small class="text-muted">
+                                27/01/2021 às 09:01
+                            </small></p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
         <div class="tab-pane fade" id="nav-postagens-por-local" role="tabpanel"
             aria-labelledby="nav-postagens-por-local-tab">
-            Localização</div>
+
+            <div class="card-body">
+                <div class="row mt-5 mb-5">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <!--titulo-->
+                        <h2 class="card-title">RaizAgro</h2>
+
+                        <div class="row mb-2">
+                            <div class="col-md-6 ">
+
+                                <!--localização-->
+                                <p class="card-text">Americana - SP</p>
+
+                            </div>
+
+                            <!--tema postagem-->
+                            <div class="col-md-6 text-right ">
+                                <p class="card-text">Tema: frutas</p>
+
+                            </div>
+                        </div>
+
+                        <div class="row  d-flex justify-content-center align-items-center">
+                            <div class="col-md-12">
+                                <!--imagen-->
+                                <img class="img-fluid" src="https://i.imgur.com/dYJTL39.jpg" alt="" id="Nov27">
+                            </div>
+                        </div>
+
+
+                        <!--descrição-->
+                        <p class=" mt-3">(Aqui vai a descrição do post)
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor
+                            harum
+                            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
+
+                        <hr>
+
+                        <!--contato-->
+                        <h4>Contato:</h4>
+                        <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
+
+                        <hr>
+
+                        <!--usuario-->
+                        <p class="text-center card-text "><small class="text-muted"> by: Witer Mendonça </small></p>
+
+                        <!--data-->
+                        <p class="text-center card-text"><small class="text-muted">
+                                27/01/2021 às 09:01
+                            </small></p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
     </div>
 </div>
-
-
-<!--Postagens-->
-<article>
-    <div class="container text-green-dark">
-
-        <hr>
-
-        <!--Todas Postagens-->
-        <div class="row mt-5 mb-5">
-            <div class="col-lg-8 col-md-10 mx-auto">
-
-                <!--titulo-->
-                <h2>RaizAgro</h2>
-
-                <div class="row">
-                    <div class="col-md-6 ">
-
-                        <!--localização-->
-                        <p>Americana - SP</p>
-
-                    </div>
-
-                    <!--tema postagem-->
-                    <div class="col-md-6 text-right ">
-                        <p>Tema: frutas</p>
-
-                    </div>
-                </div>
-
-                <!--imagen-->
-                <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
-
-                <!--descrição-->
-                <p class=" mt-3">(Aqui vai a descrição do post)
-                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-                    perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-                <hr>
-
-                <!--contato-->
-                <h4>Contato:</h4>
-                <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
-
-                <hr>
-
-                <!--usuario-->
-                <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
-
-                <!--data-->
-                <p class="text-center"><small class="text-muted">
-                        27/01/2021 às 09:01
-                    </small></p>
-            </div>
-        </div>
-
-        <hr>
-
-        <!--Todas Postagens-->
-        <div class="row mt-5 mb-5">
-            <div class="col-lg-8 col-md-10 mx-auto">
-
-                <!--titulo-->
-                <h2>RaizAgro</h2>
-
-                <div class="row">
-                    <div class="col-md-6 ">
-
-                        <!--localização-->
-                        <p>Americana - SP</p>
-
-                    </div>
-
-                    <!--tema postagem-->
-                    <div class="col-md-6 text-right ">
-                        <p>Tema: frutas</p>
-
-                    </div>
-                </div>
-
-                <!--imagen-->
-                <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
-
-                <!--descrição-->
-                <p class=" mt-3">(Aqui vai a descrição do post)
-                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-                    perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-                <hr>
-
-                <!--contato-->
-                <h4>Contato:</h4>
-                <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
-
-                <hr>
-
-                <!--usuario-->
-                <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
-
-                <!--data-->
-                <p class="text-center"><small class="text-muted">
-                        27/01/2021 às 09:01
-                    </small></p>
-            </div>
-        </div>
-
-        <hr>
-
-        <!--Todas Postagens-->
-        <div class="row mt-5 mb-5">
-            <div class="col-lg-8 col-md-10 mx-auto">
-
-                <!--titulo-->
-                <h2>RaizAgro</h2>
-
-                <div class="row">
-                    <div class="col-md-6 ">
-
-                        <!--localização-->
-                        <p>Americana - SP</p>
-
-                    </div>
-
-                    <!--tema postagem-->
-                    <div class="col-md-6 text-right ">
-                        <p>Tema: frutas</p>
-
-                    </div>
-                </div>
-
-                <!--imagen-->
-                <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
-
-                <!--descrição-->
-                <p class=" mt-3">(Aqui vai a descrição do post)
-                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-                    perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-                <hr>
-
-                <!--contato-->
-                <h4>Contato:</h4>
-                <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
-
-                <hr>
-
-                <!--usuario-->
-                <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
-
-                <!--data-->
-                <p class="text-center"><small class="text-muted">
-                        27/01/2021 às 09:01
-                    </small></p>
-            </div>
-        </div>
-
-        <hr>
-
-        <!--Todas Postagens-->
-        <div class="row mt-5 mb-5">
-            <div class="col-lg-8 col-md-10 mx-auto">
-
-                <!--titulo-->
-                <h2>RaizAgro</h2>
-
-                <div class="row">
-                    <div class="col-md-6 ">
-
-                        <!--localização-->
-                        <p>Americana - SP</p>
-
-                    </div>
-
-                    <!--tema postagem-->
-                    <div class="col-md-6 text-right ">
-                        <p>Tema: frutas</p>
-
-                    </div>
-                </div>
-
-                <!--imagen-->
-                <img class="img-fluid" src="https://i.imgur.com/Nld343F.jpg" alt="" id="Nov27">
-
-                <!--descrição-->
-                <p class=" mt-3">(Aqui vai a descrição do post)
-                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor harum
-                    perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-                <hr>
-
-                <!--contato-->
-                <h4>Contato:</h4>
-                <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
-
-                <hr>
-
-                <!--usuario-->
-                <p class="text-center"><small class="text-muted"> by: Witer Mendonça </small></p>
-
-                <!--data-->
-                <p class="text-center"><small class="text-muted">
-                        27/01/2021 às 09:01
-                    </small></p>
-            </div>
-        </div>
-
-
-    </div>
->>>>>>> branchWiter
-</article>

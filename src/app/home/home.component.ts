@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
       this.usuarioLogin = respo
 
       environment.token = this.usuarioLogin.token
-      environment.nome = this.usuarioLogin.nome
+      environment.nome = this.usuarioLogin.nomeCompleto
       environment.id = this.usuarioLogin.id
       environment.foto = this.usuarioLogin.foto
       
