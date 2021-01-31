@@ -19,9 +19,9 @@ export class TemaComponent implements OnInit {
     private temaService: TemaService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     if(environment.token == ''){
-      this.router.navigate(['/entrar'])
+      this.router.navigate(['/home'])
     }
 
     this.findAllTemas()

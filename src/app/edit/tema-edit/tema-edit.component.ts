@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./tema-edit.component.css']
 })
 export class TemaEditComponent implements OnInit {
+
   tema: Tema = new Tema()
   
 
@@ -19,7 +20,7 @@ export class TemaEditComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }

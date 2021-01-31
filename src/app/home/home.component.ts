@@ -4,6 +4,8 @@ import { usuario } from '../model/usuario';
 import { usuarioLogin } from '../model/usuarioLogin';
 import { AuthService } from '../service/auth.service';
 import { environment } from 'src/environments/environment.prod';
+import { AlertasComponent } from '../alertas/alertas.component';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +14,16 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class HomeComponent implements OnInit {
 
-  usuario: usuario = new usuario
+  usuario: usuario = new usuario()
   usuarioLogin: usuarioLogin = new usuarioLogin()
   nomeCompleto: string
   confirmSenha: string
+  corfirmarEmail: string
   tipoUsario: string
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit(){
@@ -38,6 +42,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  corfimarEmail(event: any){
+    this.corfimarEmail = event.target.value
+  }
   confirmarSenha(event: any){
     this.confirmSenha = event.target.value
 
@@ -49,16 +56,19 @@ export class HomeComponent implements OnInit {
 
   cadastrar(){
     this.usuario.tipo = this.tipoUsario
+    if(this.usuario.email.indexOf('@') == -1){
+      this.alertas.showAlertDanger('Email invalido')
+    }
 
     if(this.usuario.senha != this.confirmSenha){
-      alert('A senhas estao incorretas')
+      this.alertas.showAlertDanger('A senhas estao incorretas')
     }else{
       this.authService.cadastrar(this.usuario).subscribe((resp: usuario) =>{
         this.usuario = resp
 
         this.router.navigate(['/entrar'])
 
-        alert('Usuario cadastrado com sucesso')
+        this.alertas.showAlertSuccess('Usuario cadastrado com sucesso')
       })
     }
   }
@@ -67,7 +77,7 @@ export class HomeComponent implements OnInit {
       this.usuarioLogin = respo
 
       environment.token = this.usuarioLogin.token
-      environment.nome = this.usuarioLogin.nome
+      environment.nome = this.usuarioLogin.nomeCompleto
       environment.id = this.usuarioLogin.id
       environment.foto = this.usuarioLogin.foto
       
@@ -75,8 +85,8 @@ export class HomeComponent implements OnInit {
 
       this.router.navigate(['/inicio'])
     }, erro =>{
-      if(erro == 500){
-        alert('Usuario ou senha invalido')
+      if(erro.status == 500){
+        this.alertas.showAlertDanger('Usuário ou senha estão incorretos!')
       }
     })
   }
