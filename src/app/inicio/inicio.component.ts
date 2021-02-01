@@ -39,10 +39,16 @@ export class InicioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+<<<<<<< HEAD
     window.scroll(0,0)
     
+=======
+
+    window.scroll(0,0)
+
+>>>>>>> main
     if(environment.token == ''){
-      alert('Sua seção expirou, façaa o login novamente')
+      this.alertas.showAlertInfo('Sua seção expirou, façaa o login novamente')
       this.router.navigate(['/home'])
     }
     this.getAllTemas()

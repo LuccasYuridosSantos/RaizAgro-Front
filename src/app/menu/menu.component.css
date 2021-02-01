@@ -6,6 +6,8 @@
     cursor: pointer;
 
     text-decoration: none;
+
+    color: #21593b;
   }
 
 .bg-menu{
@@ -25,4 +27,8 @@
 }
 .text-bottom-green-light:hover{
   color: #54c286;
+}
+
+.img-perfil{
+  border-radius: 40%;
 }

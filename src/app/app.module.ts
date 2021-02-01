@@ -21,6 +21,7 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
 import { OrderModule } from 'ngx-order-pipe';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
+import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { MenuComponent } from './menu/menu.component';
     PostagemEditComponent,
     FooterComponent,
     MenuComponent,
+    UsuarioEditComponent,
   ],
   imports: [
     BrowserModule,
