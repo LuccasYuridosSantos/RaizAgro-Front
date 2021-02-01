@@ -3,18 +3,13 @@
     <div class="row" style="background-color: #21593B;">
       <div class="col-md-12 text-white">
   
-  
-        <a routerLink='/inicio' class="text-white text-left">
-          <i class="fa fa-angle-double-left" aria-hidden="true"></i> início
-        </a>
-  
         <h1 class="fs-54 text-center">Temas</h1>
         <h5 class="fs-18 text-center">Veja aqui todos os temas cadastrados ou cadastre um novo:</h5>
   
         <div class="row d-flex justify-content-center mt-4 mb-5">
           <div class="col-md-6">
                 <div class="form-group d-flex justify-content-betwee">
-                    <input [(ngModel)]='tema.nome' type="text" class="form-control mr-4" id="nome" placeholder="Digite a nome do tema">  
+                    <input [(ngModel)]='tema.nome' type="text" class="form-control mr-4" id="nome" placeholder="Digite a nome do tema" name="nome">  
                     <input [(ngModel)]='tema.descricao' type="text" class="form-control mr-4" id="descricao" placeholder="Digite a descrição do tema">  
                 </div>
                 

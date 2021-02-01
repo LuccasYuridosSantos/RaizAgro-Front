@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-menu sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-green-dark" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto d-flex align-items-center">
+            <li class="nav-item active">
+                <img src="{{foto}}" alt="Imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
+            </li>
+            <li class="nav-item pl-3">
+                <p class="m-0 font-weight-bold fs-16">{{nome}}</p>
+            </li>
+
+            <li class="nav-item pl-3">
+                <a>
+                    <p class=" fs-16 m-0 text-bottom-green-light"><i class="fa fa-pencil-square-o "
+                            aria-hidden="true"></i></p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link"  routerLink="/inicio">Início</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto d-flex align-items-center">
+            <li class="nav-item pl-3">
+                <button type="button" class="btn border-green-dark text-bottom-dark" data-dismiss="modal">
+                    <a (click)="sair()" class="m-0 font-weight-bold text-green-dark text-bottom-dark fs-16">Sair <i
+                            class="fa fa-sign-out text-bottom-dark" aria-hidden="true"></i></a>
+                </button>
+
+            </li>
+        </ul>
+    </div>
+</nav>

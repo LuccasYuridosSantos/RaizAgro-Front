@@ -1,4 +1,4 @@
-import { Postagem } from "./postagem";
+import { Postagem } from "./postagem"
 
 export class usuario{
     public id: number;
@@ -8,5 +8,5 @@ export class usuario{
     public senha: string;
     public foto: string;
     public tipo: string;
-    public postagem: Postagem[]
+    public postagem: Postagem[];
 }
