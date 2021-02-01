@@ -75,444 +75,241 @@
 
 </div>
 
-
 <!--Menu Postagens-->
-<div class="container mt-65 mb-5 text-green-dark" id="section1">
-    <nav>
+<div class="container mt-5 mb-5 text-green-dark" id="section1">
+    <nav *ngIf='listaPostagens.length != 0'>
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todas-postagens-tab"
-                data-toggle="tab" href="#nav-todas-postagens" role="tab" aria-controls="nav-todas-postagens"
+                data-toggle="tab" href="#todas-postagens" role="tab" aria-controls="nav-todas-postagens"
                 aria-selected="true">Todas
                 Postagens</a>
-            <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhas-postagens-tab" data-toggle="tab"
-                href="#nav-minhas-postagens" role="tab" aria-controls="nav-minhas-postagens"
+            <a (click)='findByIdUser()' class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhas-postagens-tab" data-toggle="tab"
+                href="#minhas-postagens" role="tab" aria-controls="nav-minhas-postagens"
                 aria-selected="false">Minhas
                 Postagens</a>
             <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagens-por-tema-tab"
-                data-toggle="tab" href="#nav-postagens-por-tema" role="tab" aria-controls="nav-postagens-por-tema"
+                data-toggle="tab" href="#postagens-por-tema" role="tab" aria-controls="nav-postagens-por-tema"
                 aria-selected="false">
                 Por tema</a>
             <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagens-por-local-tab"
-                data-toggle="tab" href="#nav-postagens-por-local" role="tab" aria-controls="nav-postagens-por-local"
+                data-toggle="tab" href="#postagens-por-local" role="tab" aria-controls="nav-postagens-por-local"
                 aria-selected="false">
                 Por Localização</a>
         </div>
     </nav>
-    <!-- <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-todas-postagens" role="tabpanel"
-<<<<<<< HEAD
-            aria-labelledby="nav-todas-postagens-tab" >
-             <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
-
-    <div class="row d-flex justify-content-center mt-5 mb-5">
-      <div class="col-md-4">
-        <div class="form-group">
-          <input type="text" class="form-control" id="titulo" placeholder="Digite um tema para pesquisar" [(ngModel)]='nomeTema' (keyup)='findByNomeTema()'>
+    <h2 *ngIf='listaPostagens.length == 0' class="text-center text-secondary mt-5">
+        Não existem postagens ainda...
+    </h2>
+    <!-- =================================================================================== -->
+    <div class="tab-content mt-5" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="todas-postagens" role="tabpanel"      aria-labelledby="nav-todas-postagens-tab" >
+            <div class="row d-flex justify-content-center mt-5 mb-5">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="titulo" placeholder="Digite um titulo de postagem para pesquisar" [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'>
+                  </div>
+                </div>
+              </div>
+    <div class="card-columns">
+        <div class="card text-center" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
+            <div class="card-body">
+                <div class="row mt-5 mb-5">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <!--titulo-->
+                        <h3 class="card-title">{{item.titulo}}</h3>
+                        <div class="row mb-2">
+                            <div class="col-md-6 ">
+                                <!--localização-->
+                                <p class="card-text">{{item.localizacao}}</p>
+                            </div>
+                            <!--tema postagem-->
+                            <div class="col-md-6 text-right ">
+                                <p class="card-text">Tema: {{item.tema.descricao}}</p>
+                            </div>
+                        </div>
+                        <div class="row  d-flex justify-content-center align-items-center">
+                            <div class="col-md-12">
+                                <!--imagen-->
+                                <img src="{{item.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
+                            </div>
+                        </div>
+                        <!--descrição-->
+                        <p class=" mt-3">{{item.descricao}}</p>
+                        <hr>
+                        <!--contato-->
+                        <h4>Contato:</h4>
+                        <p class=" mt-3">{{item.contato}}</p>
+                        <hr>
+                        <!--usuario-->
+                        <p class="text-center card-text "><small class="text-muted"> by: {{item.usuario.nomeCompleto}}</small></p>
+                        <!--data-->
+                        <p class="text-center card-text"><small class="text-muted">
+                            {{item.dataPostagem | date: 'dd/MM/yyyy'}} às {{item.dataPostagem | date: 'HH:mm'}}
+                            </small></p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <div class="card-columns" *ngFor='let tema of listaTemas'>
-      <div class="card text-center" *ngFor='let item of tema.postagem | orderBy : key : reverse'>
-        <div class="card-body">
-            <h3 class="card-title">{{item.titulo}}</h3>
-          <h5 class="card-title m-0">{{item.localizacao}}</h5>
-          <p class="card-text mt-3">{{item.contato}}</p>
-          <p class="card-text mt-3">{{item.descricao}}</p>
-          <img src="{{item.foto}}">
-          <p class="card-text"><small class="text-muted">
-            {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
-          </small></p>
-
-          <p class="card-text"><small class="text-muted">
-            by: {{item.usuario.nome}}
-          </small></p>
-
         </div>
-      </div>
-    </div>
-
-  </div>
-
-
         </div>
-        <div class="tab-pane fade" id="nav-minhas-postagens" role="tabpanel" aria-labelledby="nav-minhas-postagens-tab">
-            minhas</div>
-        <div class="tab-pane fade" id="nav-postagens-por-tema" role="tabpanel"
-            aria-labelledby="nav-postagens-por-tema-tab">
-            tema</div>
-        <div class="tab-pane fade" id="nav-postagens-por-local" role="tabpanel"
-            aria-labelledby="nav-postagens-por-local-tab">
-            Localização</div>
-    </div> -->
-    <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-todas-postagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
-            todasPostagens
-        </div>
+        <!-- ============================================================================ -->
 
-        <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">...
-            minhasPostagens
-        </div>
+             <div class="tab-pane fade " id="minhas-postagens" role="tabpanel"
+             aria-labelledby="nav-minhas-postagens-tab" >
+     <div class="card-columns">
+         <div class="card text-center" *ngFor='let item of user.postagem | orderBy : key : reverse'>
+             <div class="card-body">
+                 <div class="row mt-5 mb-5">
+                     <div class="col-lg-8 col-md-10 mx-auto">
+                         <!--titulo-->
+                         <h3 class="card-title">{{item.titulo}}</h3>
+                         <div class="row mb-2">
+                             <div class="col-md-6 ">
+                                 <!--localização-->
+                                 <p class="card-text">{{item.localizacao}}</p>
+                             </div>
+                             <!--tema postagem-->
+                             <div class="col-md-6 text-right ">
+                                 <p class="card-text">Tema: {{item.tema.descricao}}</p>
+                             </div>
+                         </div>
+                         <div class="row  d-flex justify-content-center align-items-center">
+                             <div class="col-md-12">
+                                 <!--imagen-->
+                                 <img src="{{item.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
+                             </div>
+                         </div>
+                         <!--descrição-->
+                         <p class=" mt-3">{{item.descricao}}</p>
+                         <hr>
+                         <!--contato-->
+                         <h4>Contato:</h4>
+                         <p class=" mt-3">{{item.contato}}</p>
+                         <hr>
+                         <!--usuario-->
+                         <p class="text-center card-text "><small class="text-muted"> by: {{item.usuario.nomeCompleto}}</small></p>
+                         <!--data-->
+                         <p class="text-center card-text"><small class="text-muted">
+                             {{item.dataPostagem | date: 'dd/MM/yyyy'}} às {{item.dataPostagem | date: 'HH:mm'}}
+                             </small></p>
+                             <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
+                             <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
+                     </div>
+                 </div>
+         </div>
+         </div>
+         </div>
+              </div>
+<!-- =================================================================================== -->
 
-        <div class="tab-pane fade" id="postagensPorTema" role="tabpanel" aria-labelledby="nav-postagensPorTema-tab">...
-            postagensPorTema
-        </div>
-
-        <div class="tab-pane fade" id="postagensPorLocalizacao" role="tabpanel" aria-labelledby="nav-postagensPorTema-tab">
-            postagensPorLocalização
-        </div>
-      </div>
-</div>
- <div class="tab-content mt-5" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-todas-postagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-    <div class="row d-flex justify-content-center mt-5 mb-5">
-        <div class="col-md-4">
-          <div class="form-group">
-            <input type="text" class="form-control" id="titulo" placeholder="Digite um titulo de postagem para pesquisar" [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'>
+         <div class="tab-pane fade" id="postagens-por-tema" role="tabpanel"
+          aria-labelledby="nav-postagens-por-tema-tab" >
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-4">
+    
+              <div class="form-group mb-5">
+                <input type="text" class="form-control" id="tituloPesquisa" placeholder="Digite um tema para pesquisar" [(ngModel)]='nomeTema' (keyup)='findByNomeTema()'>
+              </div>
+    
+            </div>
           </div>
-        </div>
-      </div> 
-    <div class="card-columns border-green-dark">
-      <div class="card text-center" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
-        <div class="card-body">
-            <h3 class="card-title">{{item.titulo}}</h3>
-            <h5 class="card-title m-0">{{item.localizacao}}</h5>
-            <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
-            <p class="card-text mt-3">{{item.contato}}</p>
-            <p class="card-text mt-3">{{item.descricao}}</p>
-            <img src="{{item.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
-            <p class="card-text"><small class="text-muted">
-              {{item.dataPostagem | date: 'dd/MM/yyyy'}} às {{item.dataPostagem | date: 'HH:mm'}}
-            </small></p>
-            <p class="card-text"><small class="text-muted">
-              by: {{item.usuario.nomeCompleto}}
-            </small></p>
-          <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-          <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
-
-        </div>
-      </div>
-    </div>
- </div>
- </div>
-
-
- <div class="tab-content mt-5" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-minhas-postagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-    <div class="row d-flex justify-content-center mt-5 mb-5">
-        <div class="col-md-4">
-          <div class="form-group">
-            <input type="text" class="form-control" id="titulo" placeholder="Digite um titulo de postagem para pesquisar" [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'>
+              <div class="card-columns" *ngFor='let tema of listaTemas'>
+          <div class="card text-center" *ngFor='let item of tema.postagem | orderBy : key : reverse'>
+              <div class="card-body">
+                  <div class="row mt-5 mb-5">
+                      <div class="col-lg-8 col-md-10 mx-auto">
+                          <!--titulo-->
+                          <h3 class="card-title">{{item.titulo}}</h3>
+                          <div class="row mb-2">
+                              <div class="col-md-6 ">
+                                  <!--localização-->
+                                  <p class="card-text">{{item.localizacao}}</p>
+                              </div>
+                              <!--tema postagem-->
+                              <div class="col-md-6 text-right ">
+                                  <p class="card-text">Tema: {{item.descricao}}</p>
+                              </div>
+                          </div>
+                          <div class="row  d-flex justify-content-center align-items-center">
+                              <div class="col-md-12">
+                                  <!--imagen-->
+                                  <img src="{{item.tema.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
+                              </div>
+                          </div>
+                          <!--descrição-->
+                          <p class=" mt-3">{{item.descricao}}</p>
+                          <hr>
+                          <!--contato-->
+                          <h4>Contato:</h4>
+                          <p class=" mt-3">{{item.contato}}</p>
+                          <hr>
+                          <!--usuario-->
+                          <p class="text-center card-text "><small class="text-muted"> by: {{item.usuario.nomeCompleto}}</small></p>
+                          <!--data-->
+                          <p class="text-center card-text"><small class="text-muted">
+                              {{item.dataPostagem | date: 'dd/MM/yyyy'}} às {{item.dataPostagem | date: 'HH:mm'}}
+                              </small></p>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div> 
-    <div class="card-columns border-green-dark">
-      <div class="card text-center" *ngFor='let item of user.postagem | orderBy : key : reverse'>
-        <div class="card-body">
-            <h3 class="card-title">{{item.titulo}}</h3>
-            <h5 class="card-title m-0">{{item.localizacao}}</h5>
-            <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
-            <p class="card-text mt-3">{{item.contato}}</p>
-            <p class="card-text mt-3">{{item.descricao}}</p>
-            <img src="{{item.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
-            <p class="card-text"><small class="text-muted">
-              {{item.dataPostagem | date: 'dd/MM/yyyy'}} às {{item.dataPostagem | date: 'HH:mm'}}
-            </small></p>
-            <p class="card-text"><small class="text-muted">
-              by: {{item.usuario.nomeCompleto}}
-            </small></p>
-          <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-          <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
-
-        </div>
-      </div>
-    </div>
- </div>
- </div>
-
-  <div class="tab-pane fade" id="nav-postagens-por-local" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
-
-    <div class="row d-flex justify-content-center mt-5 mb-5">
-      <div class="col-md-4">
-        <div class="form-group">
-          <input type="text" class="form-control" id="titulo" placeholder="Digite um tema para pesquisar" [(ngModel)]='nomeTema' (keyup)='findByNomeTema()'>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="card-columns" *ngFor='let tema of listaTemas'>
-      <div class="card text-center" *ngFor='let item of tema.postagem | orderBy : key : reverse'>
-        <div class="card-body">
-            <h3 class="card-title">{{item.titulo}}</h3>
-          <h5 class="card-title m-0">{{item.localizacao}}</h5>
-          <p class="card-text mt-3">{{item.contato}}</p>
-          <p class="card-text mt-3">{{item.descricao}}</p>
-          <img src="{{item.foto}}">
-          <p class="card-text"><small class="text-muted">
-            {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
-          </small></p>
-
-          <p class="card-text"><small class="text-muted">
-            by: {{item.usuario.nome}}
-          </small></p>
-
-        </div>
-      </div>
-    </div>
-
-=======
-            aria-labelledby="nav-todas-postagens-tab">
-
-
-            <div class="card-body">
-                <div class="row mt-5 mb-5">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <!--titulo-->
-                        <h2 class="card-title">RaizAgro</h2>
-
-                        <div class="row mb-2">
-                            <div class="col-md-6 ">
-
-                                <!--localização-->
-                                <p class="card-text">Americana - SP</p>
-
-                            </div>
-
-                            <!--tema postagem-->
-                            <div class="col-md-6 text-right ">
-                                <p class="card-text">Tema: frutas</p>
-
-                            </div>
-                        </div>
-
-                        <div class="row  d-flex justify-content-center align-items-center">
-                            <div class="col-md-12">
-                                <!--imagen-->
-                                <img class="img-fluid" src="https://i.imgur.com/dYJTL39.jpg" alt="" id="Nov27">
-                            </div>
-                        </div>
-
-
-                        <!--descrição-->
-                        <p class=" mt-3">(Aqui vai a descrição do post)
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor
-                            harum
-                            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-                        <hr>
-
-                        <!--contato-->
-                        <h4>Contato:</h4>
-                        <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
-
-                        <hr>
-
-                        <!--usuario-->
-                        <p class="text-center card-text "><small class="text-muted"> by: Witer Mendonça </small></p>
-
-                        <!--data-->
-                        <p class="text-center card-text"><small class="text-muted">
-                                27/01/2021 às 09:01
-                            </small></p>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="tab-pane fade" id="nav-minhas-postagens" role="tabpanel" aria-labelledby="nav-minhas-postagens-tab">
-
-
-            <div class="card-body">
-                <div class="row mt-5 mb-5">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <!--titulo-->
-                        <h2 class="card-title">RaizAgro</h2>
-
-                        <div class="row mb-2">
-                            <div class="col-md-6 ">
-
-                                <!--localização-->
-                                <p class="card-text">Americana - SP</p>
-
-                            </div>
-
-                            <!--tema postagem-->
-                            <div class="col-md-6 text-right ">
-                                <p class="card-text">Tema: frutas</p>
-
-                            </div>
-                        </div>
-
-                        <div class="row  d-flex justify-content-center align-items-center">
-                            <div class="col-md-12">
-                                <!--imagen-->
-                                <img class="img-fluid" src="https://i.imgur.com/dYJTL39.jpg" alt="" id="Nov27">
-                            </div>
-                        </div>
-
-
-                        <!--descrição-->
-                        <p class=" mt-3">(Aqui vai a descrição do post)
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor
-                            harum
-                            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-                        <hr>
-
-                        <!--contato-->
-                        <h4>Contato:</h4>
-                        <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
-
-                        <hr>
-
-                        <!--usuario-->
-                        <p class="text-center card-text "><small class="text-muted"> by: Witer Mendonça </small></p>
-
-                        <!--data-->
-                        <p class="text-center card-text"><small class="text-muted">
-                                27/01/2021 às 09:01
-                            </small></p>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="tab-pane fade" id="nav-postagens-por-tema" role="tabpanel"
-            aria-labelledby="nav-postagens-por-tema-tab">
-
-
-            <div class="card-body">
-                <div class="row mt-5 mb-5">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <!--titulo-->
-                        <h2 class="card-title">RaizAgro</h2>
-
-                        <div class="row mb-2">
-                            <div class="col-md-6 ">
-
-                                <!--localização-->
-                                <p class="card-text">Americana - SP</p>
-
-                            </div>
-
-                            <!--tema postagem-->
-                            <div class="col-md-6 text-right ">
-                                <p class="card-text">Tema: frutas</p>
-
-                            </div>
-                        </div>
-
-                        <div class="row  d-flex justify-content-center align-items-center">
-                            <div class="col-md-12">
-                                <!--imagen-->
-                                <img class="img-fluid" src="https://i.imgur.com/dYJTL39.jpg" alt="" id="Nov27">
-                            </div>
-                        </div>
-
-
-                        <!--descrição-->
-                        <p class=" mt-3">(Aqui vai a descrição do post)
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor
-                            harum
-                            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-                        <hr>
-
-                        <!--contato-->
-                        <h4>Contato:</h4>
-                        <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
-
-                        <hr>
-
-                        <!--usuario-->
-                        <p class="text-center card-text "><small class="text-muted"> by: Witer Mendonça </small></p>
-
-                        <!--data-->
-                        <p class="text-center card-text"><small class="text-muted">
-                                27/01/2021 às 09:01
-                            </small></p>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="tab-pane fade" id="nav-postagens-por-local" role="tabpanel"
-            aria-labelledby="nav-postagens-por-local-tab">
-
-            <div class="card-body">
-                <div class="row mt-5 mb-5">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <!--titulo-->
-                        <h2 class="card-title">RaizAgro</h2>
-
-                        <div class="row mb-2">
-                            <div class="col-md-6 ">
-
-                                <!--localização-->
-                                <p class="card-text">Americana - SP</p>
-
-                            </div>
-
-                            <!--tema postagem-->
-                            <div class="col-md-6 text-right ">
-                                <p class="card-text">Tema: frutas</p>
-
-                            </div>
-                        </div>
-
-                        <div class="row  d-flex justify-content-center align-items-center">
-                            <div class="col-md-12">
-                                <!--imagen-->
-                                <img class="img-fluid" src="https://i.imgur.com/dYJTL39.jpg" alt="" id="Nov27">
-                            </div>
-                        </div>
-
-
-                        <!--descrição-->
-                        <p class=" mt-3">(Aqui vai a descrição do post)
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Accusamus exercitationem id distinctio maiores itaque ut, rerum sed beatae dolor
-                            harum
-                            perferendis esse omnis qui adipisci eos molestias, sint suscipit et.</p>
-
-                        <hr>
-
-                        <!--contato-->
-                        <h4>Contato:</h4>
-                        <p class=" mt-3">(Aqui vai o contato do post) Telefone / E-mail </p>
-
-                        <hr>
-
-                        <!--usuario-->
-                        <p class="text-center card-text "><small class="text-muted"> by: Witer Mendonça </small></p>
-
-                        <!--data-->
-                        <p class="text-center card-text"><small class="text-muted">
-                                27/01/2021 às 09:01
-                            </small></p>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
+          </div>
+          </div>
+<!-- =================================================================================== -->
+
+               <div class="tab-pane fade" id="postagens-por-local" role="tabpanel"
+               aria-labelledby="nav-postagens-por-local-tab" >
+       <div class="card-columns">
+           <div class="card text-center" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
+               <div class="card-body">
+                   <div class="row mt-5 mb-5">
+                       <div class="col-lg-8 col-md-10 mx-auto">
+                           <!--titulo-->
+                           <h3 class="card-title">{{item.titulo}}</h3>
+                           <div class="row mb-2">
+                               <div class="col-md-6 ">
+                                   <!--localização-->
+                                   <p class="card-text">{{item.localizacao}}</p>
+                               </div>
+                               <!--tema postagem-->
+                               <div class="col-md-6 text-right ">
+                                   <p class="card-text">Tema: {{item.tema.descricao}}</p>
+                               </div>
+                           </div>
+                           <div class="row  d-flex justify-content-center align-items-center">
+                               <div class="col-md-12">
+                                   <!--imagen-->
+                                   <img src="{{item.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
+                               </div>
+                           </div>
+   
+   
+                           <!--descrição-->
+                           <p class=" mt-3">{{item.descricao}}</p>
+   
+                           <hr>
+   
+                           <!--contato-->
+                           <h4>Contato:</h4>
+                           <p class=" mt-3">{{item.contato}}</p>
+   
+                           <hr>
+   
+                           <!--usuario-->
+                           <p class="text-center card-text "><small class="text-muted"> by: {{item.usuario.nomeCompleto}}</small></p>
+   
+                           <!--data-->
+                           <p class="text-center card-text"><small class="text-muted">
+                               {{item.dataPostagem | date: 'dd/MM/yyyy'}} às {{item.dataPostagem | date: 'HH:mm'}}
+                               </small></p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           </div>
+           </div>
     </div>
 </div>
->>>>>>> main
+    
+        
+
