@@ -16,9 +16,13 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { TemaComponent } from './tema/tema.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
+import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
+import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
+import { OrderModule } from 'ngx-order-pipe';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +35,8 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
     TemaComponent,
     TemaEditComponent,
     TemaDeleteComponent,
+    PostagemDeleteComponent,
+    PostagemEditComponent,
     FooterComponent,
     MenuComponent,
     UsuarioEditComponent,
@@ -40,7 +46,8 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [
     {
