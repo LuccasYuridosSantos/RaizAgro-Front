@@ -31,6 +31,12 @@ header {
 .container-card{
   flex-wrap: wrap;
 }
+
+.img-profile{
+  width: 240px;
+  height: 240px;
+}
+
 @media (max-width: 1000px) {
   
   .item{
