@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment.prod';
 export class MenuComponent implements OnInit {
 
   nome = environment.nomeCompleto;
-  foto = environment.foto;
+  fotoPerfil = environment.foto;
   id = environment.id;
   
 
