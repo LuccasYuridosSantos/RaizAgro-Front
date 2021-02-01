@@ -28,3 +28,7 @@
 .text-bottom-green-light:hover{
   color: #54c286;
 }
+
+.img-perfil{
+  border-radius: 40%;
+}
