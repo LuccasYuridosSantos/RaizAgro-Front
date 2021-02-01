@@ -75,15 +75,15 @@
 
 </div>
 
-<!--Menu Postagens-->
+<!--Menu Postagens *ngIf='listaPostagens.length != 0'-->
 <div class="container mt-5 mb-5 text-green-dark" id="section1">
-    <nav *ngIf='listaPostagens.length != 0'>
+    <nav >
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todas-postagens-tab"
                 data-toggle="tab" href="#todas-postagens" role="tab" aria-controls="nav-todas-postagens"
                 aria-selected="true">Todas
                 Postagens</a>
-            <a (click)='findByIdUser()' class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhas-postagens-tab" data-toggle="tab"
+            <a (click)='findByIdUsuario()' class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhas-postagens-tab" data-toggle="tab"
                 href="#minhas-postagens" role="tab" aria-controls="nav-minhas-postagens"
                 aria-selected="false">Minhas
                 Postagens</a>
@@ -97,9 +97,9 @@
                 Por Localização</a>
         </div>
     </nav>
-    <h2 *ngIf='listaPostagens.length == 0' class="text-center text-secondary mt-5">
+    <!-- <h2 *ngIf='listaPostagens.length == 0' class="text-center text-secondary mt-5">
         Não existem postagens ainda...
-    </h2>
+    </h2> -->
     <!-- =================================================================================== -->
     <div class="tab-content mt-5" id="nav-tabContent">
         <div class="tab-pane fade show active" id="todas-postagens" role="tabpanel"      aria-labelledby="nav-todas-postagens-tab" >
@@ -187,7 +187,7 @@
                          <p class=" mt-3">{{item.contato}}</p>
                          <hr>
                          <!--usuario-->
-                         <p class="text-center card-text "><small class="text-muted"> by: {{item.usuario.nomeCompleto}}</small></p>
+                         <p class="text-center card-text "><small class="text-muted"> by: {{item.nomeCompleto}}</small></p>
                          <!--data-->
                          <p class="text-center card-text"><small class="text-muted">
                              {{item.dataPostagem | date: 'dd/MM/yyyy'}} às {{item.dataPostagem | date: 'HH:mm'}}
@@ -233,7 +233,7 @@
                           <div class="row  d-flex justify-content-center align-items-center">
                               <div class="col-md-12">
                                   <!--imagen-->
-                                  <img src="{{item.tema.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
+                                  <img src="{{item.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
                               </div>
                           </div>
                           <!--descrição-->
@@ -259,6 +259,15 @@
 
                <div class="tab-pane fade" id="postagens-por-local" role="tabpanel"
                aria-labelledby="nav-postagens-por-local-tab" >
+               <div class="row d-flex justify-content-center">
+                <div class="col-md-4">
+        
+                  <div class="form-group mb-5">
+                    <input type="text" class="form-control" id="tituloPesquisa" placeholder="Digite um tema para pesquisar" [(ngModel)]='localizacao' (keyup)='findByLocalizacao()'>
+                  </div>
+        
+                </div>
+              </div>
        <div class="card-columns">
            <div class="card text-center" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
                <div class="card-body">

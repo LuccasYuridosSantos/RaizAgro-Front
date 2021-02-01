@@ -1,9 +1,9 @@
+import { AlertasService } from './../../service/alertas.service';
+import { environment } from './../../../environments/environment.prod';
+import { PostagemService } from './../../service/postagem.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Postagem } from './../../model/postagem';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Postagem } from 'src/app/model/postagem';
-import { AlertasService } from 'src/app/service/alertas.service';
-import { PostagemService } from 'src/app/service/postagem.service';
-import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-postagem-delete',
@@ -11,20 +11,23 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./postagem-delete.component.css']
 })
 export class PostagemDeleteComponent implements OnInit {
+
   postagem: Postagem = new Postagem()
   idPost: number
 
-  constructor(  
+  constructor(
     private router: Router,
     private route: ActivatedRoute,
     private postagemService: PostagemService,
-    private alertas: AlertasService) { }
+    private alertas: AlertasService
+  ) { }
 
-  ngOnInit(){
+  ngOnInit() {
+
     window.scroll(0,0)
 
     if(environment.token == ''){
-      this.router.navigate(['/entrar'])
+      this.router.navigate(['/home'])
     }
 
     this.idPost = this.route.snapshot.params['id']

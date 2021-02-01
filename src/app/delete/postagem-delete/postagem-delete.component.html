@@ -1,1 +1,62 @@
-<p>postagem-delete works!</p>
+<div class="container mb-5 mt-5">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center text-secondary">Apagar postagem</h1>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="text-center text-secondary">Você tem certeza que deseja apagar essa postagem?</h4>
+      </div>
+    </div>
+  
+    <div class="card-body">
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <!--titulo-->
+                <h3 class="card-title">{{postagem.titulo}}</h3>
+                <div class="row mb-2">
+                    <div class="col-md-6 ">
+                        <!--localização-->
+                        <p class="card-text">{{postagem.localizacao}}</p>
+                    </div>
+                    <!--tema postagem-->
+                    <div class="col-md-6 text-right ">
+                        <p class="card-text">Tema: {{postagem.tema.descricao}}</p>
+                    </div>
+                </div>
+                <div class="row  d-flex justify-content-center align-items-center">
+                    <div class="col-md-12">
+                        <!--imagen-->
+                        <img src="{{postagem.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
+                    </div>
+                </div>
+                <!--descrição-->
+                <p class=" mt-3">{{postagem.descricao}}</p>
+                <hr>
+                <!--contato-->
+                <h4>Contato:</h4>
+                <p class=" mt-3">{{postagem.contato}}</p>
+                <hr>
+                <!--usuario-->
+                <p class="text-center card-text "><small class="text-muted"> by: {{postagem.usuario.nomeCompleto}}</small></p>
+                <!--data-->
+                <p class="text-center card-text"><small class="text-muted">
+                    {{postagem.dataPostagem | date: 'dd/MM/yyyy'}} às {{postagem.dataPostagem | date: 'HH:mm'}}
+                    </small></p>
+            </div>
+        </div>
+    </div>
+
+  
+    <div class="row mt-5">
+      <div class="col-md-12 d-flex justify-content-center">
+        <button class="btn btn-danger mr-4" routerLink='/inicio'>Não</button>
+        <button class="btn btn-success" (click)='apagar()'>Sim</button>
+      </div>
+    </div>
+  
+  </div>
+  

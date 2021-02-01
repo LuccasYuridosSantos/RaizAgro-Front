@@ -18,6 +18,7 @@ export class InicioComponent implements OnInit {
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
   tituloPost: string
+  localizacao: string
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
@@ -39,14 +40,9 @@ export class InicioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-<<<<<<< HEAD
-    window.scroll(0,0)
-    
-=======
 
     window.scroll(0,0)
-
->>>>>>> main
+  
     if(environment.token == ''){
       this.alertas.showAlertInfo('Sua seção expirou, façaa o login novamente')
       this.router.navigate(['/home'])
@@ -69,7 +65,7 @@ export class InicioComponent implements OnInit {
       this.listaPostagens = resp
     })
   }
-  findByIdUser(){
+  findByIdUsuario(){
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: usuario)=>{
       this.user = resp
     })
@@ -93,6 +89,15 @@ export class InicioComponent implements OnInit {
       this.getAllPostagens()
     }else{
       this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[])=>{
+        this.listaPostagens = resp
+      })
+    }
+  } 
+  findByLocalizacao(){
+    if(this.localizacao == ''){
+      this.getAllPostagens()
+    }else{
+      this.postagemService.getByLocalizacao(this.localizacao).subscribe((resp: Postagem[])=>{
         this.listaPostagens = resp
       })
     }
