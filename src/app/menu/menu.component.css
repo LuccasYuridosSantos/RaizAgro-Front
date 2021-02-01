@@ -1,0 +1,28 @@
+.fs-16{
+    font-size: 16pt;
+  }
+  
+  a{
+    cursor: pointer;
+
+    text-decoration: none;
+  }
+
+.bg-menu{
+    background-color: #f7f7f7;
+}
+  
+.border-green-dark{
+  border-color: #21593b;
+  color: #21593b;
+  
+}
+
+.text-bottom-dark:hover{
+  color: #54c286;
+  border-color: #54c286;
+  background-color: #21593b;
+}
+.text-bottom-green-light:hover{
+  color: #54c286;
+}
