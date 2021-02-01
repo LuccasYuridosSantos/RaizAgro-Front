@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
   }
 
   cadastrar(){
-    this.usuario.tipo = this.tipoUsario
+    this.usuario.tipo = 'normal'
     if(this.usuario.email.indexOf('@') == -1){
       this.alertas.showAlertDanger('Email invalido')
     }
