@@ -18,6 +18,7 @@ import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
+import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MenuComponent } from './menu/menu.component';
     TemaDeleteComponent,
     FooterComponent,
     MenuComponent,
+    UsuarioEditComponent,
   ],
   imports: [
     BrowserModule,

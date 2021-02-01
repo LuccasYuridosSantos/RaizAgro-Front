@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-menu sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-menu sticky-top text-green-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
@@ -14,14 +14,14 @@
             </li>
 
             <li class="nav-item pl-3">
-                <a>
+                <a class="text-green-dark" [routerLink]="['/usuario-edit', id]">
                     <p class=" fs-16 m-0 text-bottom-green-light"><i class="fa fa-pencil-square-o "
                             aria-hidden="true"></i></p>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link"  routerLink="/inicio">Início</a>
+                <a class="nav-link text-green-dark"  routerLink="/inicio">Início</a>
             </li>
         </ul>
 

@@ -35,7 +35,6 @@ export class TemaComponent implements OnInit {
 
 
   cadastrar(){  
-    this.tema.ativo = true
     
      this.temaService.postTema(this.tema).subscribe((resp: Tema)=>{
        this.tema = resp

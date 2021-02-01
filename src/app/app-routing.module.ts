@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContatoComponent } from './contato/contato.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 import { HomeComponent } from './home/home.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { SobreComponent } from './sobre/sobre.component';
@@ -22,7 +23,9 @@ const routes: Routes = [
   {path: 'tema', component: TemaComponent},
   //rota para edit e delete
   {path: 'tema-edit/:id', component: TemaEditComponent},
-  {path: 'tema-delete/:id', component: TemaDeleteComponent}
+  {path: 'tema-delete/:id', component: TemaDeleteComponent},
+  //rota para editar usuario
+  {path: 'usuario-edit/:id', component:UsuarioEditComponent}
 
 ];
 
