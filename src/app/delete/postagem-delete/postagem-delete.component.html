@@ -12,25 +12,25 @@
       </div>
     </div>
   
-    <div class="card-body">
+    <div class="card-body text-green-dark">
         <div class="row mt-5 mb-5">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <!--titulo-->
-                <h3 class="card-title">{{postagem.titulo}}</h3>
+                <h2 class="card-title">{{postagem.titulo}}</h2>
                 <div class="row mb-2">
-                    <div class="col-md-6 ">
+                    <div class="col-md-6 text-left ">
                         <!--localização-->
                         <p class="card-text">{{postagem.localizacao}}</p>
                     </div>
                     <!--tema postagem-->
                     <div class="col-md-6 text-right ">
-                        <p class="card-text">Tema: {{postagem.tema.descricao}}</p>
+                        <p class="card-text">Tema: {{postagem.tema.nome}}</p>
                     </div>
                 </div>
                 <div class="row  d-flex justify-content-center align-items-center">
                     <div class="col-md-12">
                         <!--imagen-->
-                        <img src="{{postagem.foto}}" class="rounded mx-auto d-block img-fluid img-thumbnail">
+                        <img src="{{postagem.foto}}" class="rounded img-fluid">
                     </div>
                 </div>
                 <!--descrição-->
