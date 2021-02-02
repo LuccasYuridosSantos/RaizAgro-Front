@@ -24,9 +24,9 @@
 </div>
 
 <!-- Modal Nova Postagem -->
-<div class="modal fade text-green-dark" id="nova-postagem" tabindex="-1" role="dialog"
+<div class="modal fade text-green-dark bd-example-modal-lg" id="nova-postagem" tabindex="-1" role="dialog"
     aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
@@ -35,27 +35,37 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-grup">
-                    <label for="titulo">Título</label>
-                    <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo1" placeholder="Digite o Título">
+                <div class="row">
+                    <div class="col-md-6">
+                    <div class="form-grup">
+                        <label for="titulo">Título</label>
+                        <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo1" placeholder="Digite o Título">
+                    </div>
                 </div>
-                <div class="form-grup mt-2">
-                    <label for="local">Localização</label>
-                    <input [(ngModel)]='postagem.localizacao' type="text" class="form-control" id="local" placeholder="Ex: São Paulo - SP">
+                <div class="col-md-6">
+                    <div class="form-grup">
+                        <label for="local">Localização</label>
+                        <input [(ngModel)]='postagem.localizacao' type="text" class="form-control" id="local" placeholder="Ex: São Paulo - SP">
+                    </div>
+                </div>
                 </div>
                 <div class="form-grup mt-2">
                     <label for="contato">Contato</label>
                     <textarea [(ngModel)]='postagem.contato' class="form-control" name="contato" id="contato" rows="2"
-                        placeholder="Telefone / E-mail"></textarea>
+                        placeholder="Telefone / E-mail" style="resize: none"></textarea>
                 </div>
+                <div class="form-grup mt-2">
+                    <label for="texto">Texto</label>
+                    <textarea [(ngModel)]='postagem.descricao' class="form-control" name="texto" id="texto" rows="3" style="resize: none"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
                 <div class="form-grup mt-2">
                     <label for="foto">Link da Foto</label>
                     <input [(ngModel)]='postagem.foto' type="text" class="form-control" id="foto" placeholder="URL">
                 </div>
-                <div class="form-grup mt-2">
-                    <label for="texto">Texto</label>
-                    <textarea [(ngModel)]='postagem.descricao' class="form-control" name="texto" id="texto" rows="3"></textarea>
-                </div>
+            </div>
+            <div class="col-md-6">
                 <div class="form-grup mt-2">
                     <label for="texto">Escolha um Tema ou <a routerLink="/tema" data-dismiss="modal">cadastre um
                             novo</a></label>
@@ -64,6 +74,8 @@
                             {{item.nome}}
                         </option>
                     </select>
+                </div>
+            </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -192,8 +204,8 @@
                          <p class="text-center card-text"><small class="text-muted">
                              {{item.dataPostagem | date: 'dd/MM/yyyy'}} às {{item.dataPostagem | date: 'HH:mm'}}
                              </small></p>
-                             <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-                             <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
+                             <a [routerLink]="['/postagem-edit', item.id]" class=" mr-3 btn btn-outline-success" href="">Editar</a>
+                             <a [routerLink]="['/postagem-delete', item.id]" class="btn btn-outline-danger" href="">Apagar</a>
                      </div>
                  </div>
          </div>
