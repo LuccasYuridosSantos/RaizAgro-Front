@@ -88,3 +88,15 @@ header {
 .git:hover{
   color: gray;
 }
+
+.cor-a{
+  cursor: pointer;
+
+  text-decoration: none;
+
+  color: #21593b;
+}
+
+.cor-a:hover{
+  color: #54c286;
+}

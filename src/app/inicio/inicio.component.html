@@ -69,8 +69,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-grup mt-2">
-                    <label for="texto">Escolha um Tema ou <a routerLink="/tema" data-dismiss="modal">cadastre um
-                            novo</a></label>
+                    <label for="texto">Escolha um Tema</label>
                     <select class="form-control" name="tema" id="tema" [(ngModel)]='idTema' (change)='findByIdTema()' aria-placeholder="Tema">
                         <option *ngFor='let item of listaTemas' value="{{item.id}}">
                             {{item.nome}}
@@ -81,8 +80,8 @@
         </div>
     </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" (click)='publicar()'
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-outline-success" (click)='publicar()'
                     data-dismiss="modal">Publicar</button>
             </div> 
     </div>
