@@ -30,6 +30,14 @@ export class TemaEditComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
+    /**
+    if (environment.tipo != 'adm') {
+      this.alertas.showAlertInfo('Você precisa ser adm para acessar essa rota')
+      this.router.navigate(['/inicio'])
+    } 
+
+     */
+
     let id = this.route.snapshot.params['id']
     this.findtByIdTema(id)
   }
