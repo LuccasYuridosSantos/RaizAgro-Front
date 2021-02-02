@@ -24,3 +24,6 @@ body{
     text-decoration: none;
     color: #359b64;
 }
+html{
+  scroll-behavior: smooth;
+}
