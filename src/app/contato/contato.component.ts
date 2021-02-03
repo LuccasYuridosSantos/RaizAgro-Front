@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-contato',
@@ -7,11 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild("alert") alertElem: ElementRef;
+  @ViewChild("disabled") disableElem: ElementRef;
 
-  ngOnInit() {
+  constructor(
+    private alert: AlertasService,
+    private router: Router
+  ) { }
 
-    window.scroll(0,0)
+  ngOnInit(){
+
   }
 
-}
+  validaEmail(event: any){
+    var str = event.target.value;
+    if (str.indexOf("@")!=-1){
+      this.alertElem.nativeElement.removeAttribute('alert-email','');
+      this.disableElem.nativeElement.removeAttribute('disabled', '');
+    }else{
+      this.alertElem.nativeElement.setAttribute('alert-email','');
+      this.disableElem.nativeElement.setAttribute('disabled', '');
+    }
+    
+    
+  }
+
+  enviar(){
+    this.alert.showAlertSuccess('Mensagem enviada com sucesso!')
+    this.router.navigate(['/home'])
+
+  }
+  
+ }
