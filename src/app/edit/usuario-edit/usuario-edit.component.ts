@@ -47,7 +47,7 @@ export class UsuarioEditComponent implements OnInit {
     }
 
     if (this.usuario.senha != this.confirmarSenha) {
-      this.alertas.showAlertDanger('A senhas estao incorretas')
+      this.alertas.showAlertDanger('As senhas estão incorretas')
     } else {
       this.authService.cadastrar(this.usuario).subscribe((resp: usuario) => {
         this.usuario = resp
