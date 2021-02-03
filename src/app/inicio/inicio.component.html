@@ -57,8 +57,8 @@
                 </div>
                 <div class="form-grup mt-2">
                     <label for="texto">Texto</label>
-                    <textarea [(ngModel)]='postagem.descricao' class="form-control" name="texto" id="texto"
-                    rows="3" style="resize: none" placeholder="Corpo do Post"></textarea>
+                    <textarea [(ngModel)]='postagem.descricao' ngMaxlength = "255" class="form-control" name="texto" id="texto"
+                    rows="3" style="resize: none" placeholder="Corpo do Post"> </textarea>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -153,7 +153,11 @@
                                     </div>
                                 </div>
                                 <!--descrição-->
-                                <pre class=" mt-3">{{item.descricao}}</pre>
+                                <div class="row">
+                                    <div class="col-md-12" style="word-break: break-all">
+                                    <p class="text-justify mt-3">{{item.descricao}}</p>
+                                    </div>
+                                    </div>
                                 <hr>
                                 <!--contato-->
                                 <h4>Contato:</h4>
@@ -200,7 +204,11 @@
                                     </div>
                                 </div>
                                 <!--descrição-->
-                                <pre class=" mt-3">{{item.descricao}}</pre>
+                                <div class="row">
+                                    <div class="col-md-12" style="word-break: break-all">
+                                    <p class="text-justify mt-3">{{item.descricao}}</p>
+                                    </div>
+                                    </div>
                                 <hr>
                                 <!--contato-->
                                 <h4>Contato:</h4>
@@ -249,6 +257,9 @@
                                         <!--localização-->
                                         <p class="card-text">{{item.localizacao}}</p>
                                     </div>
+                                    <div class="col-md-6 text-right">
+                                        <p class="card-text">Tema: {{tema.nome}}</p>
+                                    </div>
                                 </div>
                                 <div class="row  d-flex justify-content-center align-items-center">
                                     <div class="col-md-12">
@@ -257,7 +268,11 @@
                                     </div>
                                 </div>
                                 <!--descrição-->
-                                <pre class=" mt-3">{{item.descricao}}</pre>
+                                <div class="row">
+                                <div class="col-md-12" style="word-break: break-all">
+                                <p class="text-justify mt-3">{{item.descricao}}</p>
+                                </div>
+                                </div>
                                 <hr>
                                 <!--contato-->
                                 <h4>Contato:</h4>
@@ -315,11 +330,12 @@
                                         <img src="{{item.foto}}" class="rounded img-fluid">
                                     </div>
                                 </div>
-
-
                                 <!--descrição-->
-                                <pre class=" mt-3">{{item.descricao}}</pre>
-
+                                <div class="row">
+                                    <div class="col-md-12" style="word-break: break-all">
+                                    <p class="text-justify mt-3">{{item.descricao}}</p>
+                                    </div>
+                                    </div>
                                 <hr>
 
                                 <!--contato-->

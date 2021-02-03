@@ -1,5 +1,7 @@
+import { ConvertActionBindingResult } from '@angular/compiler/src/compiler_util/expression_converter';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/postagem';
 import { Tema } from '../model/tema';
@@ -37,10 +39,9 @@ export class InicioComponent implements OnInit {
     public authService: AuthService,
     private alertas: AlertasService,
     private postagemService: PostagemService
-  ) { }
-
-  ngOnInit() {
-
+    ) { }
+    
+    ngOnInit() {
     window.scroll(0,0)
   
     if(environment.token == ''){
@@ -50,6 +51,7 @@ export class InicioComponent implements OnInit {
     this.getAllTemas()
     this.getAllPostagens()
   }
+
   getAllTemas(){
     this.temaService.getAllTema().subscribe((resp: Tema[])=>{
       this.listaTemas = resp
@@ -82,8 +84,13 @@ export class InicioComponent implements OnInit {
       this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
-    })
-  }
+    }, erro =>{
+      if(erro.status == 500){
+        this.alertas.showAlertDanger('Numero de caracteres excedidos')
+    }
+  })
+    }
+  
   findByTituloPostagem(){
     if(this.tituloPost == ''){
       this.getAllPostagens()
