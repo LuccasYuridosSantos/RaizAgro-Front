@@ -61,14 +61,14 @@ export class HomeComponent implements OnInit {
     }
 
     if(this.usuario.senha != this.confirmSenha){
-      this.alertas.showAlertDanger('A senhas estao incorretas')
+      this.alertas.showAlertDanger('As senhas estão incorretas')
     }else{
       this.authService.cadastrar(this.usuario).subscribe((resp: usuario) =>{
         this.usuario = resp
 
         this.router.navigate(['/entrar'])
 
-        this.alertas.showAlertSuccess('Usuario cadastrado com sucesso')
+        this.alertas.showAlertSuccess('Usuário cadastrado com sucesso')
       })
     }
   }
