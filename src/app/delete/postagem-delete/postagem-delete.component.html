@@ -34,12 +34,14 @@
                     </div>
                 </div>
                 <!--descrição-->
-                <pre class=" mt-3">{{postagem.descricao}}</pre>
+                <p class=" mt-3">{{postagem.descricao}}</p>
                 <hr>
                 <!--contato-->
-                <h4>Contato:</h4>
-                <pre class=" mt-3">{{postagem.contato}}</pre>
+                <h5>Telefone:</h5>
+                <p class=" mt-1"><a href="tel:{{postagem.telefone}}">{{postagem.telefone}}</a></p>
                 <hr>
+                <h5>E-mail</h5>
+                <p class=" mt-1"><a href="mailTo:{{postagem.email}}">{{postagem.email}}</a></p>
                 <!--usuario-->
                 <p class="text-center card-text "><small class="text-muted"> by: {{postagem.usuario.nomeCompleto}}</small></p>
                 <!--data-->

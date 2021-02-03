@@ -36,57 +36,67 @@
                 </button>
             </div>
             <div class="modal-body">
-            <div class="row">
-                <div class="col-md-6">
-                <div class="form-grup">
-                    <label for="titulo">Título</label>
-                    <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo1" placeholder="Digite o Título">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-grup">
+                            <label for="titulo">Título</label>
+                            <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo1"
+                                placeholder="Digite o Título">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-grup">
+                            <label for="local">Localização</label>
+                            <input [(ngModel)]='postagem.localizacao' type="text" class="form-control" id="local"
+                                placeholder="Ex: São Paulo - SP">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-grup">
-                    <label for="local">Localização</label>
-                    <input [(ngModel)]='postagem.localizacao' type="text" class="form-control" id="local" placeholder="Ex: São Paulo - SP">
-                </div>
-            </div>
-            </div>
                 <div class="form-grup mt-2">
-                    <label for="contato">Contato</label>
-                    <textarea [(ngModel)]='postagem.contato' class="form-control" name="contato" id="contato" rows="2"
-                        placeholder="Telefone / E-mail" style="resize: none"></textarea>
+                    <label for="contato">Telefone</label>
+                    <input [(ngModel)]='postagem.telefone' type="text" class="form-control" id="telefone"
+                        placeholder="Digite aqui seu telefone Ex: (99) 99999-9999">
+                </div>
+                <div class="form-grup mt-2">
+                    <label for="contato">E-mail</label>
+                    <input [(ngModel)]='postagem.email' type="text" class="form-control" id="email"
+                    placeholder="Digite aqui seu E-mail">
                 </div>
                 <div class="form-grup mt-2">
                     <label for="texto">Texto</label>
-                    <textarea [(ngModel)]='postagem.descricao' class="form-control" name="texto" id="texto"
-                    rows="3" style="resize: none" placeholder="Corpo do Post"></textarea>
+                    <textarea [(ngModel)]='postagem.descricao' class="form-control" name="texto" id="texto" rows="3"
+                        style="resize: none" placeholder="Corpo do Post"></textarea>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                <div class="form-grup mt-2">
-                    <label for="foto">Link da Foto</label>
-                    <input [(ngModel)]='postagem.foto' type="text" class="form-control" id="foto" placeholder="URL">
+                        <div class="form-grup mt-2">
+                            <label for="foto">Link da Foto</label>
+                            <input [(ngModel)]='postagem.foto' type="text" class="form-control" id="foto"
+                                placeholder="URL">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-grup mt-2">
+                            <!--Yuri ja vou ate deixar aqui <a *ngIf="authService.adm()" data-dismiss="modal" routerLink='/tema'> ou cadastre um novo</a>:  -->
+                            <label for="texto">Escolha um Tema <a *ngIf="authService.adm()" data-dismiss="modal"
+                                    routerLink='/tema'> ou cadastre um novo</a>:</label>
+                            <select class="form-control" name="tema" id="tema" [(ngModel)]='idTema'
+                                (change)='findByIdTema()' aria-placeholder="Tema">
+                                <option *ngFor='let item of listaTemas' value="{{item.id}}">
+                                    {{item.nome}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-grup mt-2">
-                    <!--Yuri ja vou ate deixar aqui <a *ngIf="authService.adm()" data-dismiss="modal" routerLink='/tema'> ou cadastre um novo</a>:  -->
-                    <label for="texto">Escolha um Tema <a  *ngIf="authService.adm()" data-dismiss="modal" routerLink='/tema'> ou cadastre um novo</a>:</label>
-                    <select class="form-control" name="tema" id="tema" [(ngModel)]='idTema' (change)='findByIdTema()' aria-placeholder="Tema">
-                        <option *ngFor='let item of listaTemas' value="{{item.id}}">
-                            {{item.nome}}
-                        </option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-outline-success" (click)='publicar()'
                     data-dismiss="modal">Publicar</button>
-            </div> 
+            </div>
+        </div>
     </div>
-</div>
 </div>
 
 <!--Menu Postagens *ngIf='listaPostagens.length != 0'-->
@@ -153,11 +163,14 @@
                                     </div>
                                 </div>
                                 <!--descrição-->
-                                <pre class=" mt-3">{{item.descricao}}</pre>
+                                <p class=" mt-3">{{item.descricao}}</p>
                                 <hr>
                                 <!--contato-->
-                                <h4>Contato:</h4>
-                                <pre class=" mt-3">{{item.contato}}</pre>
+                                <h5>Telefone:</h5>
+                                <p class=" mt-1"><a href="tel:{{item.telefone}}">{{item.telefone}}</a></p>
+                                <hr>
+                                <h5>E-mail:</h5>
+                                <p class=" mt-1"><a href="mailTo:{{item.email}}">{{item.email}}</a></p>
                                 <hr>
                                 <!--usuario-->
                                 <p class="text-center card-text "><small class="text-muted"> by:
@@ -200,11 +213,14 @@
                                     </div>
                                 </div>
                                 <!--descrição-->
-                                <pre class=" mt-3">{{item.descricao}}</pre>
+                                <p class=" mt-3">{{item.descricao}}</p>
                                 <hr>
                                 <!--contato-->
-                                <h4>Contato:</h4>
-                                <pre class=" mt-3">{{item.contato}}</pre>
+                                <h5>Telefone:</h5>
+                                <p class=" mt-1"><a href="tel:{{item.telefone}}">{{item.telefone}}</a></p>
+                                <hr>
+                                <h5>E-mail:</h5>
+                                <p class=" mt-1"><a href="mailTo:{{item.email}}">{{item.email}}</a></p>
                                 <hr>
                                 <!--data-->
                                 <p class="text-center card-text"><small class="text-muted">
@@ -213,8 +229,10 @@
                                     </small></p>
 
                                 <div class="text-center">
-                                    <a [routerLink]="['/postagem-edit', item.id]" class=" mr-3 btn btn-outline-success" href="">Editar</a>
-                                    <a [routerLink]="['/postagem-delete', item.id]" class="btn btn-outline-danger" href="">Apagar</a>
+                                    <a [routerLink]="['/postagem-edit', item.id]" class=" mr-3 btn btn-outline-success"
+                                        href="">Editar</a>
+                                    <a [routerLink]="['/postagem-delete', item.id]" class="btn btn-outline-danger"
+                                        href="">Apagar</a>
                                 </div>
 
                             </div>
@@ -257,11 +275,14 @@
                                     </div>
                                 </div>
                                 <!--descrição-->
-                                <pre class=" mt-3">{{item.descricao}}</pre>
+                                <p class=" mt-3">{{item.descricao}}</p>
                                 <hr>
                                 <!--contato-->
-                                <h4>Contato:</h4>
-                                <pre class=" mt-3">{{item.contato}}</pre>
+                                <h5>Telefone:</h5>
+                                <p class=" mt-1"><a href="tel:{{item.telefone}}">{{item.telefone}}</a></p>
+                                <hr>
+                                <h5>E-mail:</h5>
+                                <p class=" mt-1"><a href="mailTo:{{item.email}}">{{item.email}}</a></p>
                                 <hr>
                                 <!--usuario-->
                                 <p class="text-center card-text "><small class="text-muted"> by:
@@ -315,17 +336,17 @@
                                         <img src="{{item.foto}}" class="rounded img-fluid">
                                     </div>
                                 </div>
-
-
                                 <!--descrição-->
-                                <pre class=" mt-3">{{item.descricao}}</pre>
+                                <p class=" mt-3">{{item.descricao}}</p>
 
                                 <hr>
 
                                 <!--contato-->
-                                <h4>Contato:</h4>
-                                <pre class=" mt-3">{{item.contato}}</pre>
-
+                                <h5>Telefone:</h5>
+                                <p class=" mt-1"><a href="tel:{{item.telefone}}">{{item.telefone}}</a></p>
+                                <hr>
+                                <h5>E-mail:</h5>
+                                <p class=" mt-1"><a href="mailTo:{{item.email}}">{{item.email}}</a></p>
                                 <hr>
 
                                 <!--usuario-->

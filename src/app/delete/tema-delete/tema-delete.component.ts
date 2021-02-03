@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {Tema} from 'src/app/model/tema'
+import { Tema } from 'src/app/model/tema'
 import { TemaService } from 'src/app/service/tema.service';
 import { environment } from 'src/environments/environment.prod';
 import { from } from 'rxjs';
@@ -24,33 +24,33 @@ export class TemaDeleteComponent implements OnInit {
 
   ngOnInit() {
 
-    window.scroll(0,0)
+    window.scroll(0, 0)
 
-    if(environment.token == ''){
+    if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
 
-    /*
+
     if (environment.tipo != 'adm') {
       this.alertas.showAlertInfo('Você precisa ser adm para acessar essa rota')
       this.router.navigate(['/inicio'])
     }
 
-    */
+
 
     this.idTema = this.route.snapshot.params['id']
     this.findByIdTema(this.idTema)
 
   }
 
-  findByIdTema(id: number){
-    this.temaService.getByIdTema(id).subscribe((resp: Tema)=>{
+  findByIdTema(id: number) {
+    this.temaService.getByIdTema(id).subscribe((resp: Tema) => {
       this.tema = resp
     })
   }
 
-  apagar(){
-    this.temaService.deleteTema(this.idTema).subscribe(()=>{
+  apagar() {
+    this.temaService.deleteTema(this.idTema).subscribe(() => {
       this.alertas.showAlertSuccess('Tema apagado com sucesso!')
       this.router.navigate(['/tema'])
     })
