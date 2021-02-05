@@ -39,12 +39,12 @@ export class InicioComponent implements OnInit {
     public authService: AuthService,
     private alertas: AlertasService,
     private postagemService: PostagemService
-    ) { }
-    
-    ngOnInit() {
-    window.scroll(0,0)
-  
-    if(environment.token == ''){
+  ) { }
+
+  ngOnInit() {
+    window.scroll(0, 0)
+
+    if (environment.token == '') {
       this.alertas.showAlertInfo('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/home'])
     }
@@ -52,68 +52,68 @@ export class InicioComponent implements OnInit {
     this.getAllPostagens()
   }
 
-  getAllTemas(){
-    this.temaService.getAllTema().subscribe((resp: Tema[])=>{
+  getAllTemas() {
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })
   }
-  findByIdTema(){
-    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema)=>{
+  findByIdTema() {
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
       this.tema = resp
     })
   }
-  getAllPostagens(){
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[])=>{
+  getAllPostagens() {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
     })
   }
-  findByIdUsuario(){
-    this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: usuario)=>{
+  findByIdUsuario() {
+    this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: usuario) => {
       this.user = resp
     })
   }
-  publicar(){
+  publicar() {
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
 
     this.user.id = this.idUsuario
     this.postagem.usuario = this.user
 
-    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
-    }, erro =>{
-      if(erro.status == 500){
-        this.alertas.showAlertDanger('Numero de caracteres excedidos')
-    }
-  })
-    }
-  
-  findByTituloPostagem(){
-    if(this.tituloPost == ''){
+    }, erro => {
+      if (erro.status == 500) {
+        this.alertas.showAlertInfo('Preencha os campos corretamete!')
+      }
+    })
+  }
+
+  findByTituloPostagem() {
+    if (this.tituloPost == '') {
       this.getAllPostagens()
-    }else{
-      this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[])=>{
-        this.listaPostagens = resp
-      })
-    }
-  } 
-  findByLocalizacao(){
-    if(this.localizacao == ''){
-      this.getAllPostagens()
-    }else{
-      this.postagemService.getByLocalizacao(this.localizacao).subscribe((resp: Postagem[])=>{
+    } else {
+      this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[]) => {
         this.listaPostagens = resp
       })
     }
   }
-  findByNomeTema(){
-    if(this.nomeTema == ''){
+  findByLocalizacao() {
+    if (this.localizacao == '') {
+      this.getAllPostagens()
+    } else {
+      this.postagemService.getByLocalizacao(this.localizacao).subscribe((resp: Postagem[]) => {
+        this.listaPostagens = resp
+      })
+    }
+  }
+  findByNomeTema() {
+    if (this.nomeTema == '') {
       this.getAllTemas()
-    }else{
-      this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[])=>{
+    } else {
+      this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[]) => {
         this.listaTemas = resp
       })
     }

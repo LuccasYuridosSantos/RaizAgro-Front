@@ -52,7 +52,11 @@ export class TemaComponent implements OnInit {
        this.alertas.showAlertSuccess('Tema cadastrado com sucesso!')
        this.findAllTemas()
        this.tema = new Tema()
-     })
-  } 
+     }, erro => {
+      if (erro.status == 500) {
+        this.alertas.showAlertInfo('Preencha os campos!')
+      }
+    })
+  }
 
 }
