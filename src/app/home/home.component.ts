@@ -60,8 +60,14 @@ export class HomeComponent implements OnInit {
       this.alertas.showAlertDanger('Email invalido')
     }
 
+    if(this.usuario.nomeCompleto == null || this.usuario.usuario == null || this.usuario.email == null || this.usuario.senha == null ){
+      this.router.navigate(['/entrar'])
+      this.alertas.showAlertDanger('Usuário não cadastrado, preencha corretamente os campos')
+    }
+
     if(this.usuario.senha != this.confirmSenha){
       this.alertas.showAlertDanger('As senhas estão incorretas')
+      
     }else{
       this.authService.cadastrar(this.usuario).subscribe((resp: usuario) =>{
         this.usuario = resp

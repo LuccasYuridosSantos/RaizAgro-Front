@@ -38,7 +38,7 @@ export class TemaEditComponent implements OnInit {
 
 
 
-    let id = this.route.snapshot.params['id']
+    var id = this.route.snapshot.params['id']
     this.findtByIdTema(id)
   }
 
@@ -50,11 +50,12 @@ export class TemaEditComponent implements OnInit {
   }
 
 
-  atualizarTema() {
+  atualizarTema(){
+    this.tema.id = this.route.snapshot.params['id']
     this.temaService.putTema(this.tema).subscribe((resp: Tema) => {
-      this.tema = resp
-      this.alertas.showAlertSuccess('Tema atualizado com sucesso!')
+      this.tema = resp     
       this.router.navigate(['/tema'])
+      this.alertas.showAlertSuccess('Tema atualizado com sucesso!')
     })
   }
 }
