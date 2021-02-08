@@ -91,6 +91,7 @@ export class HomeComponent implements OnInit {
       })
     }
   }
+  
   entrar() {
     this.authService.login(this.usuarioLogin).subscribe((respo: usuarioLogin) => {
       this.usuarioLogin = respo
