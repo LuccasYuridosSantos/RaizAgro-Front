@@ -79,16 +79,27 @@ export class InicioComponent implements OnInit {
     this.user.id = this.idUsuario
     this.postagem.usuario = this.user
 
-    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
-      this.postagem = resp
-      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
-      this.postagem = new Postagem()
-      this.getAllPostagens()
-    }, erro => {
-      if (erro.status == 500) {
-        this.alertas.showAlertInfo('Preencha os campos corretamete!')
-      }
-    })
+    if (this.postagem.titulo == null || this.postagem.titulo == '') {
+      this.alertas.showAlertDanger('O campo título não pode ser vazio')
+    } else
+
+      if (this.postagem.descricao == null || this.postagem.descricao == '') {
+        this.alertas.showAlertDanger('O campo texto não pode ser vazio')
+      } else
+
+        if (this.postagem.localizacao == null || this.postagem.localizacao.length <= 0) {
+          this.alertas.showAlertDanger('O campo localização não pode ser vazio')
+        } else {
+          this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+            this.postagem = resp
+            this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
+            this.postagem = new Postagem()
+            this.getAllPostagens()
+          })
+
+        }
+
+
   }
 
   findByTituloPostagem() {
