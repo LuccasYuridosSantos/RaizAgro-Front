@@ -55,41 +55,38 @@ export class HomeComponent implements OnInit {
 
   cadastrar() {
     this.usuario.tipo = 'normal'
-    if (this.usuario.email.indexOf('@') == -1) {
+    if (this.usuario.email.indexOf('@') == -1 || this.usuario.email == null) {
       this.alertas.showAlertDanger('E-mail inválido')
-    }
+    } else
 
+      if (this.usuario.senha.length < 6 || this.usuario.senha == null) {
+        this.alertas.showAlertDanger('Sua senha deve ter no mínimo 6 caracteres')
+      } else
 
+        if (this.usuario.usuario.length < 5 || this.usuario.usuario == null) {
+          this.alertas.showAlertDanger('Seu usuário deve ter no mínimo 5 caracteres')
+        } else
 
-    if (this.usuario.senha.length < 6) {
-      this.alertas.showAlertDanger('Sua senha deve ter no mínimo 6 caracteres')
-    }
+          if (this.usuario.nomeCompleto == null || this.usuario.nomeCompleto.length < 6) {
+            this.alertas.showAlertDanger('Usuário não cadastrado, Informe seu nome completo')
+          } else
 
-    if (this.usuario.usuario.length < 5) {
-      this.alertas.showAlertDanger('Seu usuário deve ter no mínimo 5 caracteres')
-    }
+            if (this.usuario.senha != this.confirmSenha) {
+              this.alertas.showAlertDanger('As senhas estão incorretas')
 
-    if (this.usuario.nomeCompleto == null || this.usuario.usuario == null || this.usuario.email == null || this.usuario.senha == null) {
-      this.router.navigate(['/entrar'])
-      this.alertas.showAlertDanger('Usuário não cadastrado, preencha corretamente os campos')
-    }
+            } else {
+              this.authService.cadastrar(this.usuario).subscribe((resp: usuario) => {
+                this.usuario = resp
 
-    if (this.usuario.senha != this.confirmSenha) {
-      this.alertas.showAlertDanger('As senhas estão incorretas')
+                this.router.navigate(['/entrar'])
 
-    } else {
-      this.authService.cadastrar(this.usuario).subscribe((resp: usuario) => {
-        this.usuario = resp
-
-        this.router.navigate(['/entrar'])
-
-        this.alertas.showAlertSuccess('Usuário cadastrado com sucesso')
-      }, erro => {
-        if (erro.status == 409) {
-          this.alertas.showAlertDanger('Usuário já cadastrado, escolha outro usuário')
-        }
-      })
-    }
+                this.alertas.showAlertSuccess('Usuário cadastrado com sucesso')
+              }, erro => {
+                if (erro.status == 409) {
+                  this.alertas.showAlertDanger('Usuário já cadastrado, escolha outro usuário')
+                }
+              })
+            }
   }
   entrar() {
     this.authService.login(this.usuarioLogin).subscribe((respo: usuarioLogin) => {
