@@ -55,40 +55,43 @@ export class HomeComponent implements OnInit {
 
   cadastrar() {
     this.usuario.tipo = 'normal'
-    if (this.usuario.email.indexOf('@') == -1 || this.usuario.email == null) {
-      this.alertas.showAlertDanger('E-mail inválido')
+    if (this.usuarioNull()) {
+      this.alertas.showAlertDanger('Para cadastrar é necessario preencher todos os campos!')
     } else
-
-      if (this.usuario.senha.length < 6 || this.usuario.senha == null) {
-        this.alertas.showAlertDanger('Sua senha deve ter no mínimo 6 caracteres')
+      if (this.usuario.email.indexOf('@') == -1 || this.usuario.email == null) {
+        this.alertas.showAlertDanger('E-mail inválido')
       } else
 
-        if (this.usuario.usuario.length < 5 || this.usuario.usuario == null) {
-          this.alertas.showAlertDanger('Seu usuário deve ter no mínimo 5 caracteres')
+        if (this.usuario.senha.length < 6 || this.usuario.senha == null) {
+          this.alertas.showAlertDanger('Sua senha deve ter no mínimo 6 caracteres')
         } else
 
-          if (this.usuario.nomeCompleto == null || this.usuario.nomeCompleto.length < 6) {
-            this.alertas.showAlertDanger('Usuário não cadastrado, Informe seu nome completo')
+          if (this.usuario.usuario.length < 5 || this.usuario.usuario == null) {
+            this.alertas.showAlertDanger('Seu usuário deve ter no mínimo 5 caracteres')
           } else
 
-            if (this.usuario.senha != this.confirmSenha) {
-              this.alertas.showAlertDanger('As senhas estão incorretas')
+            if (this.usuario.nomeCompleto == null || this.usuario.nomeCompleto.length < 6) {
+              this.alertas.showAlertDanger('Usuário não cadastrado, Informe seu nome completo')
+            } else
 
-            } else {
-              this.authService.cadastrar(this.usuario).subscribe((resp: usuario) => {
-                this.usuario = resp
+              if (this.usuario.senha != this.confirmSenha) {
+                this.alertas.showAlertDanger('As senhas estão incorretas')
 
-                this.router.navigate(['/entrar'])
+              } else {
+                this.authService.cadastrar(this.usuario).subscribe((resp: usuario) => {
+                  this.usuario = resp
 
-                this.alertas.showAlertSuccess('Usuário cadastrado com sucesso')
-              }, erro => {
-                if (erro.status == 409) {
-                  this.alertas.showAlertDanger('Usuário já cadastrado, escolha outro usuário')
-                }
-              })
-            }
+                  this.router.navigate(['/entrar'])
+
+                  this.alertas.showAlertSuccess('Usuário cadastrado com sucesso')
+                }, erro => {
+                  if (erro.status == 409) {
+                    this.alertas.showAlertDanger('Usuário já cadastrado, escolha outro usuário')
+                  }
+                })
+              }
   }
-  
+
   entrar() {
     this.authService.login(this.usuarioLogin).subscribe((respo: usuarioLogin) => {
       this.usuarioLogin = respo
@@ -107,6 +110,20 @@ export class HomeComponent implements OnInit {
         this.alertas.showAlertDanger('Usuário ou senha estão incorretos!')
       }
     })
+  }
+
+
+  usuarioNull() {
+    let isNull: boolean = false
+
+    if (this.usuario.email == null && this.usuario.nomeCompleto == null && this.usuario.senha == null) {
+      return isNull = true
+    }
+    
+
+    return isNull
+
+
   }
 
 }
