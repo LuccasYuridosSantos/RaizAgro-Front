@@ -21,7 +21,7 @@ export class UsuarioEditComponent implements OnInit {
     private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
-    private alertas: AlertasService
+    private alertas: AlertasService,
   ) { }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class UsuarioEditComponent implements OnInit {
 
 
   atualizar() {
-
+    this.usuario.id = this.idUsuario
     if (this.usuario.email.indexOf('@') == -1) {
       this.alertas.showAlertDanger('Email invalido')
     }
